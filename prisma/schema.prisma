@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum TemplateComplexity {
+  SIMPLE
+  MODERATE
+  ADVANCED
+}
+
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  users     User[]
+  apps      App[]
+
+  @@map("organizations")
+}
+
+model User {
+  id             String       @id @default(cuid())
+  email          String       @unique
+  name           String?
+  organizationId String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([organizationId])
+  @@map("users")
+}
+
+model Template {
+  id               String             @id @default(cuid())
+  name             String
+  slug             String             @unique
+  description      String
+  category         String
+  complexity       TemplateComplexity
+  tags             String[]
+  schemaDefaults   Json
+  parentTemplateId String?
+  version          Int                @default(1)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  parent           Template?          @relation("TemplateInheritance", fields: [parentTemplateId], references: [id], onDelete: SetNull)
+  children         Template[]         @relation("TemplateInheritance")
+  apps             App[]
+
+  @@index([parentTemplateId])
+  @@map("templates")
+}
+
+model App {
+  id                   String            @id @default(cuid())
+  name                 String
+  slug                 String            @unique
+  templateId           String
+  organizationId       String
+  currentSchemaVersion Int               @default(1)
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  template             Template          @relation(fields: [templateId], references: [id])
+  organization         Organization      @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  runtimeSchema        RuntimeSchema?
+  schemaVersions       SchemaVersion[]
+  mutationLogs         MutationLog[]
+  previewSnapshots     PreviewSnapshot[]
+
+  @@index([organizationId])
+  @@map("apps")
+}
+
+model RuntimeSchema {
+  id        String   @id @default(cuid())
+  appId     String   @unique
+  schema    Json
+  version   Int
+  updatedAt DateTime @updatedAt
+  app       App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@map("runtime_schemas")
+}
+
+model SchemaVersion {
+  id        String   @id @default(cuid())
+  appId     String
+  schema    Json
+  version   Int
+  createdAt DateTime @default(now())
+  app       App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@unique([appId, version])
+  @@index([appId])
+  @@map("schema_versions")
+}
+
+model MutationLog {
+  id                 String   @id @default(cuid())
+  appId              String
+  instruction        String
+  mutationType       String
+  payload            Json
+  resultSummary      String
+  success            Boolean
+  schemaVersionAfter Int
+  createdAt          DateTime @default(now())
+  app                App      @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@index([appId])
+  @@map("mutation_logs")
+}
+
+model PreviewSnapshot {
+  id        String    @id @default(cuid())
+  appId     String
+  token     String    @unique
+  schema    Json
+  expiresAt DateTime?
+  revokedAt DateTime?
+  createdAt DateTime  @default(now())
+  app       App       @relation(fields: [appId], references: [id], onDelete: Cascade)
+
+  @@index([appId])
+  @@map("preview_snapshots")
+}
