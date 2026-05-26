@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { SchemaPreview } from "@/components/builder/SchemaPreview";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { X, ArrowRight } from "lucide-react";
 import type { AppTemplate } from "@/types/app";
 
@@ -13,7 +14,6 @@ interface TemplateModalProps {
 }
 
 export function TemplateModal({ template, onClose }: TemplateModalProps) {
-  // ESC key dismiss
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -24,77 +24,57 @@ export function TemplateModal({ template, onClose }: TemplateModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-brand-dark/40 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
+      onClick={onClose}
     >
-      <div className="relative w-full max-w-4xl rounded-xl border border-white/[0.08] bg-[#0c1b2e] p-6 shadow-2xl animate-fade-in-up flex flex-col md:flex-row gap-6 max-h-[90vh] overflow-y-auto">
-        {/* Left Column: Details */}
-        <div className="flex-1 flex flex-col justify-between gap-6">
+      <div
+        className="glass-panel relative flex max-h-[90vh] w-full max-w-4xl animate-modal-in flex-col gap-6 overflow-y-auto p-6 md:flex-row"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex flex-1 flex-col justify-between gap-6">
           <div className="space-y-4">
-            {/* Header category + complexity */}
             <div className="flex items-center gap-3">
-              <span className="rounded bg-[#635BFF] px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-white">
-                {template.category}
-              </span>
-              <span className="rounded bg-white/5 border border-white/10 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider text-white/70">
-                {template.complexity}
-              </span>
+              <Badge>{template.category}</Badge>
+              <Badge variant="outline">{template.complexity}</Badge>
             </div>
-
-            <h2 id="modal-title" className="text-2xl font-bold text-white">
+            <h2 id="modal-title" className="text-2xl font-bold text-text-primary">
               {template.name}
             </h2>
-
-            <p className="text-sm text-white/70 leading-relaxed">{template.description}</p>
-
-            {/* Tags */}
-            <div className="space-y-2">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-white/40">Tags</span>
-              <div className="flex flex-wrap gap-1.5">
-                {template.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded bg-white/5 border border-white/10 px-2 py-0.5 text-xs text-white/50"
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
+            <p className="text-sm leading-relaxed text-text-secondary">
+              {template.description}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {template.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-md border border-surface-border bg-surface-bg px-2 py-0.5 text-xs text-text-secondary"
+                >
+                  #{tag}
+                </span>
+              ))}
             </div>
           </div>
-
-          {/* CTA buttons */}
-          <div className="flex items-center gap-3 mt-6">
-            <Button
-              onClick={onClose}
-              variant="outline"
-              className="border-white/10 text-white/70 hover:bg-white/5 hover:text-white"
-              aria-label="Close template preview modal"
-            >
+          <div className="flex items-center gap-3">
+            <Button variant="secondary" onClick={onClose}>
               Cancel
             </Button>
-            <Link href={`/generate?template=${template.slug}`} className="flex-1">
-              <Button
-                className="w-full bg-[#635BFF] hover:bg-[#7a73ff] text-white flex items-center justify-center gap-2 font-semibold"
-                aria-label="Create app using this template"
-              >
+            <Button className="flex-1" asChild>
+              <Link href={`/generate?template=${template.slug}`}>
                 Use This Template <ArrowRight size={16} />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
-
-        {/* Right Column: Schema Preview Component */}
-        <div className="flex-1 max-h-[60vh] md:max-h-full overflow-y-auto">
+        <div className="max-h-[60vh] flex-1 overflow-y-auto md:max-h-full">
           <SchemaPreview schema={template.schemaDefaults} />
         </div>
-
-        {/* Floating Close Button */}
         <button
+          type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/40 hover:text-white transition-all hover:bg-white/5"
+          className="absolute right-4 top-4 rounded-lg p-1 text-text-secondary transition-colors hover:bg-brand-primary/10 hover:text-brand-primary"
           aria-label="Close template preview"
         >
           <X size={16} />

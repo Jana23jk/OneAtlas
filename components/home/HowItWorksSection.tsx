@@ -1,3 +1,5 @@
+import { SectionHeader } from "@/components/layout/SectionHeader";
+
 function PencilIcon() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -65,18 +67,12 @@ const steps: Step[] = [
 export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="mx-auto max-w-7xl px-6 py-24">
-      {/* Header */}
-      <div className="mb-16 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#635BFF] bg-[#635BFF]/5 px-3 py-1 rounded-full">
-          How It Works
-        </span>
-        <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0A2540] sm:text-4xl">
-          From idea to app in three steps.
-        </h2>
-        <p className="mt-3 text-[#667085] text-sm sm:text-base max-w-md mx-auto">
-          OneAtlas automates the database provisioning and UI compiling so you can build instantly.
-        </p>
-      </div>
+      <SectionHeader
+        className="mb-16"
+        eyebrow="How it works"
+        title="From idea to app in three steps"
+        description="OneAtlas automates database provisioning and UI compiling so you can build instantly."
+      />
 
       {/* Cards + connector */}
       <div className="relative grid gap-8 md:grid-cols-3">
@@ -89,7 +85,7 @@ export function HowItWorksSection() {
         {steps.map((step) => (
           <div
             key={step.number}
-            className="relative flex flex-col gap-5 p-8 bg-white border border-[#635BFF]/10 rounded-2xl shadow-sm hover:shadow-md hover:border-[#635BFF]/20 hover:-translate-y-1 transition-all duration-300"
+            className="premium-card relative flex flex-col gap-5"
           >
             {/* Number pill + icon row */}
             <div className="flex items-center justify-between">
@@ -103,8 +99,8 @@ export function HowItWorksSection() {
                 <step.Icon />
               </span>
             </div>
-            <h3 className="text-lg font-bold text-[#0A2540]">{step.title}</h3>
-            <p className="text-sm leading-relaxed text-[#667085]">{step.description}</p>
+            <h3 className="text-lg font-bold text-text-primary">{step.title}</h3>
+            <p className="text-sm leading-relaxed text-text-secondary">{step.description}</p>
             {/* Bottom accent bar */}
             <div
               className="mt-auto h-[3px] w-12 rounded-full"

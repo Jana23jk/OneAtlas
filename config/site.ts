@@ -4,10 +4,10 @@ export const siteConfig = {
   description:
     "AI-native runtime app platform — ship full-stack apps from prompts, templates, and live runtime.",
   navLinks: [
-    { label: "Product",    href: "#how-it-works" },
-    { label: "Templates",  href: "#templates" },
-    { label: "Security",   href: "/security" },
-    { label: "Docs",       href: "/docs" },
+    { label: "Product", href: "/#how-it-works" },
+    { label: "Templates", href: "/templates" },
+    { label: "Security", href: "/security" },
+    { label: "Docs", href: "/docs" },
   ],
 } as const;
 

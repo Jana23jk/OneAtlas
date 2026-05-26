@@ -142,7 +142,7 @@ export function ConversationalInput() {
       )}
 
       {/* Main Action Bar */}
-      <div className="glass bg-[#1a1f36]/85 p-2 flex items-center gap-2.5 border border-white/10 rounded-xl shadow-2xl">
+      <div className="mx-4 mb-4 flex items-center gap-2.5 rounded-card border border-surface-border bg-white/95 p-2 shadow-card backdrop-blur-xl">
         {/* Undo Button */}
         <button
           onClick={handleUndo}
@@ -164,7 +164,7 @@ export function ConversationalInput() {
           onKeyDown={handleKeyPress}
           disabled={loading}
           placeholder="Tell me how to edit this app... e.g. 'Add a status field to contacts'"
-          className="flex-1 bg-transparent border-none text-xs text-white placeholder-white/35 outline-none px-1 py-1 disabled:opacity-50"
+          className="flex-1 border-none bg-transparent px-1 py-1 text-sm text-text-primary outline-none placeholder:text-text-secondary disabled:opacity-50"
         />
 
         {/* Send Button */}

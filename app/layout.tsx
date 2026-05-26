@@ -9,8 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OneAtlas",
-  description: "AI-native runtime app platform",
+  title: "OneAtlas — AI-native app platform",
+  description:
+    "Build internal tools at the speed of thought. Premium AI-native runtime for teams.",
 };
 
 export default function RootLayout({
@@ -19,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body className={`${inter.variable} font-sans`}>{children}</body>
     </html>
   );

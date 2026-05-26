@@ -70,9 +70,9 @@ interface TemplatesShowcaseProps {
   templates: AppTemplate[];
 }
 
-export function TemplatesShowcase({ templates }: TemplatesShowcaseProps) {
+export function TemplatesShowcase({ templates, id = "templates" }: TemplatesShowcaseProps & { id?: string }) {
   return (
-    <section id="templates" className="py-24">
+    <section id={id} className="py-24">
       {/* Header */}
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">

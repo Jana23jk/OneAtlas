@@ -117,7 +117,7 @@ export function BuilderTopBar() {
   };
 
   return (
-    <header className="flex h-[68px] items-center justify-between border-b border-white/[0.08] bg-[#0A2540] px-6 shrink-0 relative z-30">
+    <header className="glass-nav relative z-30 flex h-nav shrink-0 items-center justify-between border-b border-surface-border px-6">
       {/* Left: Back Link & Editable Name */}
       <div className="flex items-center gap-4">
         <Link

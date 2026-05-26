@@ -37,7 +37,7 @@ export function PropertiesPanel() {
   };
 
   return (
-    <div className="flex h-full flex-col bg-[#0A2540] overflow-hidden">
+    <div className="flex h-full flex-col overflow-hidden bg-white">
       {/* Header section with Collapse Toggle */}
       <div className="flex h-12 items-center justify-between border-b border-white/[0.08] px-4 shrink-0">
         <span className="text-xs font-bold uppercase tracking-wider text-[#8892A4]">

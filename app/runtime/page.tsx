@@ -1,53 +1,42 @@
 import Link from "next/link";
+import { PageShell } from "@/components/layout/PageShell";
+import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { StatCard } from "@/components/ui/stat-card";
+import { Play, Server, Zap } from "lucide-react";
 
 export default function RuntimePage() {
   return (
-    <main className="min-h-screen">
-      <header className="border-b border-white/10">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-xl font-semibold text-[var(--color-primary-light)]">
-            {siteConfig.name}
-          </Link>
-          <nav className="flex gap-6">
-            {siteConfig.navLinks.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-sm text-white/70 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
+    <PageShell>
+      <div className="mx-auto max-w-7xl space-y-10 px-6 py-16">
+        <SectionHeader
+          align="left"
+          eyebrow="Runtime"
+          title="Deploy and manage your apps"
+          description="Secure runtime environment for AI-generated applications with live schema sync."
+        />
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <div className="glass max-w-2xl p-10">
-          <h1 className="text-4xl font-bold tracking-tight text-white">
-            Runtime Environment
-          </h1>
-          <p className="mt-4 text-lg text-white/70">
-            Deploy and manage your AI-generated applications in a secure runtime environment.
-          </p>
-          <div className="mt-8">
-            <Button>Create New App</Button>
-          </div>
+        <div className="grid gap-6 sm:grid-cols-3">
+          <StatCard label="Active apps" value="0" variant="info" icon={<Server size={18} />} />
+          <StatCard label="Deployments" value="0" variant="success" icon={<Zap size={18} />} />
+          <StatCard label="Uptime" value="99.9%" variant="default" icon={<Play size={18} />} />
         </div>
 
-        <div className="mt-16">
-          <h2 className="mb-6 text-2xl font-semibold text-white">
-            Your Applications
-          </h2>
-          <div className="card p-8 text-center">
-            <p className="text-white/60">
-              No applications yet. Create your first app to get started.
+        <Card hover={false}>
+          <CardHeader>
+            <CardTitle>Your applications</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-col items-center gap-4 py-8 text-center">
+            <p className="text-text-secondary">
+              No applications yet. Generate your first app to get started.
             </p>
-          </div>
-        </div>
-      </section>
-    </main>
+            <Button asChild>
+              <Link href="/generate">Create New App</Link>
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    </PageShell>
   );
 }
