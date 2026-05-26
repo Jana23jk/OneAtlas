@@ -2,7 +2,6 @@ import { Navbar }             from "@/components/layout/Navbar";
 import { HeroSection }         from "@/components/home/HeroSection";
 import { HowItWorksSection }   from "@/components/home/HowItWorksSection";
 import { TemplatesShowcase }   from "@/components/home/TemplatesShowcase";
-import { PricingSection }      from "@/components/home/PricingSection";
 import { Footer }              from "@/components/home/Footer";
 import { templates }           from "@/config/templates";
 
@@ -63,13 +62,6 @@ export default function HomePage() {
         </div>
 
         <TemplatesShowcase templates={templates} />
-
-        {/* Divider glow */}
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#635BFF]/10 to-transparent" />
-        </div>
-
-        <PricingSection />
       </main>
 
       <Footer light={true} />
