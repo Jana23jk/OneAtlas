@@ -101,7 +101,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-  }
     background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-end) 100%);
     min-height: 100vh;
   }
