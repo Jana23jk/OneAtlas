@@ -36,9 +36,10 @@ async function main(): Promise<void> {
 
   for (const template of templates) {
     const record = await prisma.template.upsert({
-      where: { slug: template.slug },
+      where: { id: template.id },
       update: {
         name: template.name,
+        slug: template.slug,
         description: template.description,
         category: template.category,
         complexity: COMPLEXITY_MAP[template.complexity],
@@ -48,6 +49,7 @@ async function main(): Promise<void> {
         parentTemplateId: template.parentTemplateId ?? null,
       },
       create: {
+        id: template.id,
         name: template.name,
         slug: template.slug,
         description: template.description,

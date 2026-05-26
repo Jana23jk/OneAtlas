@@ -10,9 +10,9 @@ export default function DocsPage() {
             {siteConfig.name}
           </Link>
           <nav className="flex gap-6">
-            {siteConfig.navItems.map((item) => (
+            {siteConfig.navLinks.map((item) => (
               <Link
-                key={item.href}
+                key={item.label}
                 href={item.href}
                 className="text-sm text-white/70 transition-colors hover:text-white"
               >

@@ -1,70 +1,35 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
-import { templates } from "@/config/templates";
+import { Suspense } from "react";
+import Navbar from "@/components/layout/Navbar";
+import { Footer } from "@/components/home/Footer";
+import TemplatesClient from "./TemplatesClient";
 
 export default function TemplatesPage() {
   return (
-    <main className="min-h-screen">
-      <header className="border-b border-white/10">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-xl font-semibold text-[var(--color-primary-light)]">
-            {siteConfig.name}
-          </Link>
-          <nav className="flex gap-6">
-            {siteConfig.navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-white/70 transition-colors hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#0A2540] flex flex-col text-white">
+      <Navbar />
 
-      <section className="mx-auto max-w-6xl px-6 py-24">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold tracking-tight text-white">
-            Templates
-          </h1>
-          <p className="mt-4 text-lg text-white/70">
-            Start with a pre-built template and customize it to your needs
+      <main className="flex-1 max-w-7xl w-full mx-auto px-6 py-28 space-y-8">
+        {/* Header */}
+        <div className="space-y-2">
+          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Templates</h1>
+          <p className="text-white/60 text-base max-w-xl">
+            Operational app systems for every team. Get started with pre-designed data schemas, charts, and metrics.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {templates.map((template) => (
-            <article key={template.id} className="card p-6">
-              <div className="mb-4 flex items-center justify-between">
-                <span className="text-xs text-[var(--color-accent-teal)]">
-                  {template.category}
-                </span>
-                <span className="text-xs text-white/40">
-                  {template.complexity}
-                </span>
-              </div>
-              <h2 className="mb-2 font-semibold text-white">{template.name}</h2>
-              <p className="mb-4 text-sm text-white/60">
-                {template.description}
-              </p>
-              <div className="mb-4 flex flex-wrap gap-2">
-                {template.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-white/5 px-2 py-1 text-xs text-white/50"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <Button className="w-full">Use Template</Button>
-            </article>
-          ))}
-        </div>
-      </section>
-    </main>
+        {/* Client side filtered template grid */}
+        <Suspense
+          fallback={
+            <div className="flex h-40 items-center justify-center">
+              <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-[#635BFF] border-white/20" />
+            </div>
+          }
+        >
+          <TemplatesClient />
+        </Suspense>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

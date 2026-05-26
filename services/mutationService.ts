@@ -112,7 +112,7 @@ export function applyMutation(
     }
 
     default:
-      throw new Error(`Unknown mutation type: ${(mutation as any).type}`);
+      throw new Error(`Unknown mutation type: ${(mutation as { type: string }).type}`);
   }
 }
 
