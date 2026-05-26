@@ -386,6 +386,178 @@
   .reveal-delay-3 {
     animation-delay: 0.3s;
   }
+
+  /* Deploy center */
+  .deploy-page-bg {
+    position: relative;
+    min-height: 100%;
+    background: linear-gradient(180deg, #f7f8ff 0%, #ffffff 100%);
+  }
+
+  .deploy-page-bg::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 10% 0%, rgba(99, 91, 255, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 35% at 90% 20%, rgba(255, 89, 150, 0.08) 0%, transparent 50%);
+  }
+
+  .deploy-metric-card {
+    background: #ffffff;
+    border: 1px solid #e7eaf5;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(10, 37, 64, 0.06);
+    transition:
+      transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .deploy-metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(10, 37, 64, 0.1);
+  }
+
+  .btn-deploy-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 14px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(90deg, #635bff, #7a73ff);
+    box-shadow: 0 8px 24px rgba(99, 91, 255, 0.35);
+    transition:
+      transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-deploy-primary:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(99, 91, 255, 0.45);
+  }
+
+  .deploy-timeline-card {
+    background: #ffffff;
+    border: 1px solid #e7eaf5;
+    border-left-width: 4px;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 16px rgba(10, 37, 64, 0.04);
+    transition:
+      transform 250ms ease,
+      box-shadow 250ms ease;
+  }
+
+  .deploy-timeline-card:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 24px rgba(10, 37, 64, 0.08);
+  }
+
+  .build-log-terminal {
+    background: #0a2540;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: #ffffff;
+    box-shadow: 0 12px 40px rgba(10, 37, 64, 0.2);
+  }
+
+  .build-log-terminal .log-muted {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Preview environment */
+  .preview-page-bg {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f7f8ff 0%, #ffffff 100%);
+  }
+
+  .preview-page-bg::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.45;
+    background-image:
+      linear-gradient(to right, rgba(99, 91, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 91, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .preview-browser-bar {
+    height: 70px;
+    background: #ffffff;
+    border-bottom: 1px solid #e7eaf5;
+  }
+
+  .preview-device-frame {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 15px 40px rgba(10, 37, 64, 0.08);
+    transition:
+      width 400ms cubic-bezier(0.4, 0, 0.2, 1),
+      max-width 400ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .preview-device-frame.floating {
+    animation: float-up 8s ease-in-out infinite;
+  }
+
+  .preview-insight-card {
+    background: #ffffff;
+    border: 1px solid #e7eaf5;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(10, 37, 64, 0.04);
+    transition: transform 250ms ease;
+  }
+
+  .preview-insight-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .status-pulse-dot {
+    position: relative;
+  }
+
+  .status-pulse-dot::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 9999px;
+    animation: status-pulse 2s ease-in-out infinite;
+  }
+
+  .status-pulse-running::after {
+    background: rgba(0, 212, 255, 0.35);
+  }
+
+  .status-pulse-success::after {
+    background: rgba(0, 212, 177, 0.35);
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
 }
 
 @layer utilities {

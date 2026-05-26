@@ -11,6 +11,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Sparkles,
+  Rocket,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -34,6 +35,7 @@ export function Sidebar({ collapsed, onToggle, appId }: SidebarProps) {
   const items = appId
     ? [
         { href: `/builder/${appId}`, label: "Builder", icon: LayoutDashboard },
+        { href: `/deploy/${appId}`, label: "Deploy", icon: Rocket },
         { href: `/run/${appId}`, label: "Run", icon: Play },
         ...navItems,
       ]

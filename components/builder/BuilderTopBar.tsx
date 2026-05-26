@@ -105,8 +105,8 @@ export function BuilderTopBar() {
       });
       const data = await res.json();
       if (data?.data?.previewUrl) {
-        await navigator.clipboard.writeText(data.data.previewUrl);
-        setToastMsg("Preview link copied!");
+        window.open(data.data.previewUrl, "_blank", "noopener,noreferrer");
+        setToastMsg("Preview opened in new tab");
         setTimeout(() => setToastMsg(null), 2000);
       } else {
         console.error("Preview URL not found");
@@ -169,9 +169,17 @@ export function BuilderTopBar() {
         <Button variant="ghost" size="sm" className="h-9 gap-1.5">
           <Share2 size={14} /> Share
         </Button>
-        <Button onClick={startDeployment} size="sm" className="h-9 gap-1.5">
-          <Rocket size={14} /> Deploy
-        </Button>
+        {appId ? (
+          <Button asChild size="sm" className="btn-deploy-primary h-9 gap-1.5 !px-4">
+            <Link href={`/deploy/${appId}`}>
+              <Rocket size={14} /> Deploy
+            </Link>
+          </Button>
+        ) : (
+          <Button onClick={startDeployment} size="sm" className="btn-deploy-primary h-9 gap-1.5">
+            <Rocket size={14} /> Deploy
+          </Button>
+        )}
       </div>
 
       {/* Toast Alert */}
