@@ -71,12 +71,6 @@ export default async function RunPage({
             Live Runtime · v{appRecord.runtimeSchema.version} · Based on {appRecord.template.name}
           </span>
         </div>
-        <Link
-          href={`/builder/${appId}`}
-          className="rounded-lg border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold text-white/80 transition-all hover:bg-white/10 hover:text-white"
-        >
-          Open in Builder →
-        </Link>
       </header>
 
       {/* Main viewport canvas */}
