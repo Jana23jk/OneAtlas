@@ -7,16 +7,16 @@
     /* Brand — two colors only */
     --color-primary: #f8bc42;
     --color-primary-hover: #e0a22b;
-    --color-accent: #ff5996;
-    --color-accent-hover: #e63e7b;
+    --color-accent: #f8bc42;
+    --color-accent-hover: #f8bc42;
 
     /* Neutrals */
     --color-bg: #f8f9ff;
     --color-bg-end: #ffffff;
     --color-card: #ffffff;
-    --color-text: #1a1f36;
-    --color-text-secondary: #ffffff;
-    --color-text-muted: #98a2b3;
+    --color-text: #00020a;
+    --color-text-secondary: #000000;
+    --color-text-muted: #000000;
     --color-border: #e7eaf5;
     --color-row-alt: #fafbff;
     --color-row-hover: #f4f5ff;
