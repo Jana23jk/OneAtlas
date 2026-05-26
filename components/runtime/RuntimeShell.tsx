@@ -41,7 +41,7 @@ export function RuntimeShell({
       <div className="glow-purple -left-24 top-0 opacity-50" aria-hidden />
       <div className="glow-pink right-0 top-1/3 opacity-40" aria-hidden />
       <div
-        className="pointer-events-none absolute bottom-16 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#635BFF]/8 blur-3xl animate-float"
+        className="pointer-events-none absolute bottom-16 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#F8BC42]/8 blur-3xl animate-float"
         aria-hidden
       />
 
@@ -82,7 +82,7 @@ export function RuntimeShell({
             </div>
             <button
               type="button"
-              className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#635BFF]/30 hover:text-[#635BFF]"
+              className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#F8BC42]/30 hover:text-[#F8BC42]"
               aria-label="Notifications"
             >
               <Bell size={18} />
@@ -92,7 +92,7 @@ export function RuntimeShell({
               type="button"
               onClick={handleRefresh}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#635BFF]/30 hover:text-[#635BFF]",
+                "flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#F8BC42]/30 hover:text-[#F8BC42]",
                 refreshing && "pointer-events-none opacity-60",
               )}
               aria-label="Refresh"
@@ -100,7 +100,7 @@ export function RuntimeShell({
               <RefreshCw size={18} className={refreshing ? "animate-spin" : ""} />
             </button>
             <div className="flex h-10 items-center gap-2 rounded-xl border border-[#E7EAF5] bg-white pl-1 pr-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#635BFF] to-[#544cf4] text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#F8BC42] to-[#E0A22B] text-white">
                 <User size={16} />
               </span>
               <span className="hidden text-xs font-semibold text-[#1A1F36] sm:inline">Admin</span>

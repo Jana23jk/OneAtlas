@@ -77,7 +77,7 @@ export function AppCanvas({ schema: propSchema, readOnly = false }: AppCanvasPro
           <span className="mt-2 block text-2xl font-bold text-[#1A1F36]">
             {f.type === "number" ? `${(i + 1) * 425}` : "Active"}
           </span>
-          <span className="mt-1 block text-xs font-medium text-[#635BFF]">
+          <span className="mt-1 block text-xs font-medium text-[#F8BC42]">
             ↑ 12% vs last month
           </span>
         </div>
@@ -92,7 +92,7 @@ export function AppCanvas({ schema: propSchema, readOnly = false }: AppCanvasPro
           <div key={i} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
             <div
               style={{ height: `${h}%` }}
-              className="w-full rounded-t bg-gradient-to-t from-[#635BFF] to-[#544cf4] opacity-90 transition-opacity hover:opacity-100"
+              className="w-full rounded-t bg-gradient-to-t from-[#F8BC42] to-[#E0A22B] opacity-90 transition-opacity hover:opacity-100"
             />
             <span className="font-mono text-[10px] text-[#98A2B3]">Q{i + 1}</span>
           </div>
@@ -130,7 +130,7 @@ export function AppCanvas({ schema: propSchema, readOnly = false }: AppCanvasPro
           key={i}
           className="flex items-center gap-3 p-4 transition-colors hover:bg-[#F4F5FF]"
         >
-          <div className="h-2 w-2 shrink-0 rounded-full bg-[#635BFF]" />
+          <div className="h-2 w-2 shrink-0 rounded-full bg-[#F8BC42]" />
           <div className="flex flex-1 flex-wrap justify-between gap-3 text-sm">
             {comp.fields.slice(0, 3).map((f) => (
               <span key={f.id} className="text-[#1A1F36]">
@@ -154,7 +154,7 @@ export function AppCanvas({ schema: propSchema, readOnly = false }: AppCanvasPro
             <button
               type="button"
               onClick={toggleLeft}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] bg-white text-[#667085] shadow-soft transition-all hover:border-[#635BFF]/30 hover:text-[#635BFF]"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] bg-white text-[#667085] shadow-soft transition-all hover:border-[#F8BC42]/30 hover:text-[#F8BC42]"
               title="Expand Components Panel"
             >
               <PanelLeftOpen size={16} />
@@ -164,7 +164,7 @@ export function AppCanvas({ schema: propSchema, readOnly = false }: AppCanvasPro
             <button
               type="button"
               onClick={toggleRight}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] bg-white text-[#667085] shadow-soft transition-all hover:border-[#635BFF]/30 hover:text-[#635BFF]"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] bg-white text-[#667085] shadow-soft transition-all hover:border-[#F8BC42]/30 hover:text-[#F8BC42]"
               title="Expand Properties Panel"
             >
               <PanelRightOpen size={16} />
@@ -198,7 +198,7 @@ export function AppCanvas({ schema: propSchema, readOnly = false }: AppCanvasPro
             >
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="text-xl font-bold text-[#1A1F36] transition-colors group-hover:text-[#635BFF]">
+                  <h3 className="text-xl font-bold text-[#1A1F36] transition-colors group-hover:text-[#F8BC42]">
                     {comp.name}
                   </h3>
                   <p className="mt-1 font-mono text-xs text-[#98A2B3]">{comp.id}</p>

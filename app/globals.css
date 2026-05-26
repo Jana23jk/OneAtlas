@@ -5,8 +5,8 @@
 @layer base {
   :root {
     /* Brand — two colors only */
-    --color-primary: #635bff;
-    --color-primary-hover: #544cf4;
+    --color-primary: #f8bc42;
+    --color-primary-hover: #e0a22b;
     --color-accent: #ff5996;
     --color-accent-hover: #e63e7b;
 
@@ -15,7 +15,7 @@
     --color-bg-end: #ffffff;
     --color-card: #ffffff;
     --color-text: #1a1f36;
-    --color-text-secondary: #667085;
+    --color-text-secondary: #ffffff;
     --color-text-muted: #98a2b3;
     --color-border: #e7eaf5;
     --color-row-alt: #fafbff;
@@ -35,8 +35,8 @@
     --card-foreground: 210 73% 14.5%; /* #0A2540 */
     --popover: 0 0% 100%;
     --popover-foreground: 210 73% 14.5%;
-    --primary: 243 100% 68%; /* #635BFF */
-    --primary-foreground: 0 0% 100%;
+    --primary: 40 93% 62%; /* #F8BC42 */
+    --primary-foreground: 210 73% 14.5%;
     --secondary: 227 37% 93.3%; /* #E7EAF5 */
     --secondary-foreground: 210 73% 14.5%;
     --muted: 227 37% 93.3%;
@@ -47,7 +47,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 227 37% 93.3%; /* #E7EAF5 */
     --input: 227 37% 93.3%;
-    --ring: 243 100% 67.8%; /* #635BFF */
+    --ring: 40 93% 62%; /* #F8BC42 */
     --radius: 1rem; /* 16px */
   }
 }
@@ -67,7 +67,7 @@
   .glass {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(99, 91, 255, 0.1);
+    border: 1px solid rgba(248, 188, 66, 0.1);
     border-radius: 16px;
   }
 
@@ -82,7 +82,7 @@
   .hero-texture {
     background-image: radial-gradient(
       circle,
-      rgba(99, 91, 255, 0.06) 1px,
+      rgba(248, 188, 66, 0.06) 1px,
       transparent 1px
     );
     background-size: 32px 32px;
@@ -123,8 +123,8 @@
     content: "";
     @apply pointer-events-none absolute inset-0 opacity-40;
     background-image:
-      linear-gradient(to right, rgba(99, 91, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(99, 91, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(248, 188, 66, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(248, 188, 66, 0.04) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
@@ -132,7 +132,7 @@
     @apply pointer-events-none absolute rounded-full;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(99, 91, 255, 0.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(248, 188, 66, 0.14) 0%, transparent 70%);
     filter: blur(48px);
   }
 
@@ -191,14 +191,14 @@
   }
 
   .sidebar-nav-item:hover {
-    background: rgba(99, 91, 255, 0.2);
+    background: rgba(248, 188, 66, 0.2);
     color: #ffffff;
   }
 
   .sidebar-nav-item-active {
     background: var(--color-primary);
     color: #ffffff;
-    box-shadow: 0 4px 16px rgba(99, 91, 255, 0.4);
+    box-shadow: 0 4px 16px rgba(248, 188, 66, 0.4);
   }
 
   .builder-workspace {
@@ -213,7 +213,7 @@
     inset: 0;
     background: radial-gradient(
       ellipse 80% 50% at 50% 0%,
-      rgba(99, 91, 255, 0.08) 0%,
+      rgba(248, 188, 66, 0.08) 0%,
       transparent 70%
     );
   }
@@ -223,7 +223,7 @@
     border: 1px solid #e7eaf5;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 8px 25px rgba(99, 91, 255, 0.12);
+    box-shadow: 0 8px 25px rgba(248, 188, 66, 0.12);
     transition:
       transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -231,14 +231,14 @@
 
   .dashboard-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 36px rgba(99, 91, 255, 0.16);
+    box-shadow: 0 12px 36px rgba(248, 188, 66, 0.16);
   }
 
   .dashboard-card-selected {
     border: 2px solid var(--color-primary);
     box-shadow:
-      0 8px 25px rgba(99, 91, 255, 0.12),
-      0 0 0 4px rgba(99, 91, 255, 0.15);
+      0 8px 25px rgba(248, 188, 66, 0.12),
+      0 0 0 4px rgba(248, 188, 66, 0.15);
   }
 
   .dashboard-table-wrap {
@@ -286,7 +286,7 @@
   }
 
   .dashboard-table tbody tr:hover {
-    background: rgba(99, 91, 255, 0.06);
+    background: rgba(248, 188, 66, 0.06);
   }
 
   .dashboard-table tbody tr:last-child td {
@@ -297,24 +297,24 @@
     background: #ffffff;
     border: 1px solid #e7eaf5;
     border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(99, 91, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(248, 188, 66, 0.1);
     transition:
       border-color 300ms ease,
       box-shadow 300ms ease;
   }
 
   .builder-chat-bar:focus-within {
-    border-color: #635bff;
+    border-color: #F8BC42;
     box-shadow:
-      0 8px 25px rgba(99, 91, 255, 0.1),
-      0 0 0 4px rgba(99, 91, 255, 0.15);
+      0 8px 25px rgba(248, 188, 66, 0.1),
+      0 0 0 4px rgba(248, 188, 66, 0.15);
   }
 
   .section-eyebrow {
     display: inline-flex;
     align-items: center;
     border-radius: 9999px;
-    background: rgba(99, 91, 255, 0.1);
+    background: rgba(248, 188, 66, 0.1);
     padding: 0.25rem 0.75rem;
     font-size: 0.75rem;
     font-weight: 600;
@@ -339,7 +339,7 @@
 
   .input-premium:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 4px rgba(99, 91, 255, 0.15);
+    box-shadow: 0 0 0 4px rgba(248, 188, 66, 0.15);
   }
 
   .table-premium {
@@ -368,7 +368,7 @@
   }
 
   .table-premium tbody tr:hover {
-    background: rgba(99, 91, 255, 0.06);
+    background: rgba(248, 188, 66, 0.06);
   }
 
   .scrollbar-hide {
@@ -408,7 +408,7 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 40% at 10% 0%, rgba(99, 91, 255, 0.1) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 10% 0%, rgba(248, 188, 66, 0.1) 0%, transparent 55%),
       radial-gradient(ellipse 50% 35% at 90% 20%, rgba(255, 89, 150, 0.08) 0%, transparent 50%);
   }
 
@@ -417,7 +417,7 @@
     border: 1px solid #e7eaf5;
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 8px 25px rgba(99, 91, 255, 0.12);
+    box-shadow: 0 8px 25px rgba(248, 188, 66, 0.12);
     transition:
       transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -425,7 +425,7 @@
 
   .deploy-metric-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(99, 91, 255, 0.16);
+    box-shadow: 0 16px 40px rgba(248, 188, 66, 0.16);
   }
 
   .btn-deploy-primary {
@@ -438,8 +438,8 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: #ffffff;
-    background: #635bff;
-    box-shadow: 0 8px 24px rgba(99, 91, 255, 0.35);
+    background: #F8BC42;
+    box-shadow: 0 8px 24px rgba(248, 188, 66, 0.35);
     transition:
       transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -448,8 +448,8 @@
 
   .btn-deploy-primary:hover:not(:disabled) {
     transform: translateY(-3px) scale(1.02);
-    background: #544cf4;
-    box-shadow: 0 12px 32px rgba(99, 91, 255, 0.45);
+    background: #E0A22B;
+    box-shadow: 0 12px 32px rgba(248, 188, 66, 0.45);
   }
 
   .btn-accent-secondary {
@@ -477,7 +477,7 @@
     border-left-width: 4px;
     border-radius: 12px;
     padding: 20px 24px;
-    box-shadow: 0 4px 16px rgba(99, 91, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(248, 188, 66, 0.08);
     transition:
       transform 250ms ease,
       box-shadow 250ms ease;
@@ -485,13 +485,13 @@
 
   .deploy-timeline-card:hover {
     transform: translateX(4px);
-    box-shadow: 0 8px 24px rgba(99, 91, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(248, 188, 66, 0.12);
   }
 
   .build-log-terminal {
     background: #1a1f36;
     border-radius: 16px;
-    border: 1px solid rgba(99, 91, 255, 0.2);
+    border: 1px solid rgba(248, 188, 66, 0.2);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     font-size: 0.8125rem;
     line-height: 1.6;
@@ -516,8 +516,8 @@
     inset: 0;
     opacity: 0.45;
     background-image:
-      linear-gradient(to right, rgba(99, 91, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(99, 91, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(248, 188, 66, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(248, 188, 66, 0.04) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
@@ -531,7 +531,7 @@
     background: #ffffff;
     border-radius: 20px;
     padding: 16px;
-    box-shadow: 0 15px 40px rgba(99, 91, 255, 0.1);
+    box-shadow: 0 15px 40px rgba(248, 188, 66, 0.1);
     transition:
       width 400ms cubic-bezier(0.4, 0, 0.2, 1),
       max-width 400ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -547,7 +547,7 @@
     border: 1px solid #e7eaf5;
     border-radius: 16px;
     padding: 16px;
-    box-shadow: 0 4px 16px rgba(99, 91, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(248, 188, 66, 0.08);
     transition: transform 250ms ease;
   }
 
@@ -569,7 +569,7 @@
 
   .status-pulse-running::after,
   .status-pulse-success::after {
-    background: rgba(99, 91, 255, 0.35);
+    background: rgba(248, 188, 66, 0.35);
   }
 
   .status-pulse-accent::after {
@@ -589,8 +589,8 @@
     inset: 0;
     opacity: 0.4;
     background-image:
-      linear-gradient(to right, rgba(99, 91, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(99, 91, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(to right, rgba(248, 188, 66, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(248, 188, 66, 0.04) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
@@ -606,7 +606,7 @@
     border: 1px solid #e7eaf5;
     border-radius: 18px;
     padding: 24px;
-    box-shadow: 0 8px 25px rgba(99, 91, 255, 0.12);
+    box-shadow: 0 8px 25px rgba(248, 188, 66, 0.12);
     transition:
       transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -614,7 +614,7 @@
 
   .inventory-metric-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(99, 91, 255, 0.16);
+    box-shadow: 0 16px 40px rgba(248, 188, 66, 0.16);
   }
 
   .inventory-table-panel {
@@ -622,14 +622,14 @@
     border: 1px solid #e7eaf5;
     border-radius: 20px;
     padding: 24px;
-    box-shadow: 0 8px 25px rgba(99, 91, 255, 0.12);
+    box-shadow: 0 8px 25px rgba(248, 188, 66, 0.12);
     transition:
       transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .inventory-table-panel:hover {
-    box-shadow: 0 12px 36px rgba(99, 91, 255, 0.14);
+    box-shadow: 0 12px 36px rgba(248, 188, 66, 0.14);
   }
 
   .runtime-table-wrap {
@@ -675,7 +675,7 @@
   }
 
   .runtime-table tbody tr:hover {
-    background: rgba(99, 91, 255, 0.06);
+    background: rgba(248, 188, 66, 0.06);
   }
 
   .runtime-table tbody tr:last-child td {

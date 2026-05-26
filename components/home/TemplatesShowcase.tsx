@@ -2,17 +2,17 @@ import Link from "next/link";
 import type { AppTemplate } from "@/types/app";
 
 const complexityConfig: Record<AppTemplate["complexity"], { label: string; color: string; bg: string }> = {
-  SIMPLE:   { label: "Simple",   color: "#635BFF", bg: "rgba(99, 91, 255,0.12)"  },
+  SIMPLE:   { label: "Simple",   color: "#F8BC42", bg: "rgba(248, 188, 66,0.12)"  },
   MODERATE: { label: "Moderate", color: "#F8BC42", bg: "rgba(248,188,66,0.12)" },
   ADVANCED: { label: "Advanced", color: "#FF5996", bg: "rgba(255, 89, 150,0.12)" },
 };
 
 const categoryColors: Record<string, string> = {
-  CRM:        "#635BFF",
-  HR:         "#635BFF",
+  CRM:        "#F8BC42",
+  HR:         "#F8BC42",
   Admin:      "#FF5996",
   Operations: "#FF5996",
-  Analytics:  "#635BFF",
+  Analytics:  "#F8BC42",
 };
 
 interface TemplateCardProps {
@@ -24,7 +24,7 @@ function TemplateCard({ template }: TemplateCardProps) {
   const categoryColor = categoryColors[template.category] ?? "#8892A4";
 
   return (
-    <article className="group flex w-72 shrink-0 flex-col gap-4 p-6 bg-white border border-[#635BFF]/10 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-[#635BFF]/4 hover:border-[#635BFF]/20 hover:-translate-y-1 transition-all duration-300 sm:w-80">
+    <article className="group flex w-72 shrink-0 flex-col gap-4 p-6 bg-white border border-[#F8BC42]/10 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-[#F8BC42]/4 hover:border-[#F8BC42]/20 hover:-translate-y-1 transition-all duration-300 sm:w-80">
       {/* Category + complexity */}
       <div className="flex items-center justify-between">
         <span className="rounded-md px-2.5 py-1 text-[11px] font-semibold"
@@ -56,7 +56,7 @@ function TemplateCard({ template }: TemplateCardProps) {
 
       {/* CTA */}
       <Link href={`/generate?template=${template.slug}`}
-        className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-[#635BFF] transition-all group-hover:gap-2.5">
+        className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-[#F8BC42] transition-all group-hover:gap-2.5">
         Use Template
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <path d="M5 12h14M12 5l7 7-7 7" />
@@ -77,7 +77,7 @@ export function TemplatesShowcase({ templates, id = "templates" }: TemplatesShow
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#635BFF] bg-[#635BFF]/5 px-3 py-1 rounded-full">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#F8BC42] bg-[#F8BC42]/5 px-3 py-1 rounded-full">
               Templates
             </span>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#1A1F36] sm:text-4xl">
@@ -85,7 +85,7 @@ export function TemplatesShowcase({ templates, id = "templates" }: TemplatesShow
             </h2>
           </div>
           <Link href="/templates"
-            className="shrink-0 text-sm font-semibold text-[#667085] transition-colors hover:text-[#635BFF]">
+            className="shrink-0 text-sm font-semibold text-[#667085] transition-colors hover:text-[#F8BC42]">
             Browse all →
           </Link>
         </div>

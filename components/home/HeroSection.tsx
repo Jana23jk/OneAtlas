@@ -8,13 +8,13 @@ import { ArrowRight, Terminal, Shield, Zap } from "lucide-react";
 function BuilderMock() {
   const fields = ["name", "email", "status", "createdAt"];
   return (
-    <div className="animate-float relative mx-auto mt-16 max-w-3xl overflow-hidden rounded-2xl border border-[#635BFF]/15 shadow-2xl shadow-[#635BFF]/8"
+    <div className="animate-float relative mx-auto mt-16 max-w-3xl overflow-hidden rounded-2xl border border-[#F8BC42]/15 shadow-2xl shadow-[#F8BC42]/8"
       style={{ background: "#1A1F36" }}>
       {/* Window chrome */}
       <div className="flex items-center gap-2 border-b border-white/[0.08] px-4 py-3 bg-[#071D33]/40">
         <span className="h-2.5 w-2.5 rounded-full bg-[#FF5996]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#00D4B1]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[#635BFF]" />
+        <span className="h-2.5 w-2.5 rounded-full bg-[#F8BC42]" />
         <span className="ml-4 text-[11px] font-mono text-[#8892A4]">oneatlas.app / crm-workspace</span>
       </div>
       <div className="flex divide-x divide-white/[0.06] text-left">
@@ -22,7 +22,7 @@ function BuilderMock() {
         <div className="hidden w-44 flex-col gap-1.5 p-3 sm:flex bg-[#071D33]/20">
           {["Contacts", "Deals", "Pipeline", "Reports"].map((item, i) => (
             <div key={item}
-              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${i === 0 ? "bg-[#635BFF]/15 text-[#635BFF]" : "text-[#8892A4] hover:text-white/60"}`}>
+              className={`rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${i === 0 ? "bg-[#F8BC42]/15 text-[#F8BC42]" : "text-[#8892A4] hover:text-white/60"}`}>
               {item}
             </div>
           ))}
@@ -31,7 +31,7 @@ function BuilderMock() {
         <div className="flex-1 p-4 bg-[#1A1F36]">
           <div className="mb-3 flex items-center justify-between">
             <span className="text-xs font-semibold text-white/90">Contacts</span>
-            <span className="rounded bg-[#635BFF]/20 px-2 py-0.5 text-[10px] text-[#635BFF] font-medium">+ Add field</span>
+            <span className="rounded bg-[#F8BC42]/20 px-2 py-0.5 text-[10px] text-[#F8BC42] font-medium">+ Add field</span>
           </div>
           <div className="overflow-hidden rounded-lg border border-white/[0.06] bg-[#071D33]/30">
             <div className="grid grid-cols-4 border-b border-white/[0.06] bg-white/[0.02] px-3 py-2">
@@ -43,7 +43,7 @@ function BuilderMock() {
               <div key={i} className="grid grid-cols-4 border-b border-white/[0.04] px-3 py-2 last:border-0 hover:bg-white/[0.01]">
                 {row.map((cell, j) => (
                   <span key={j} className={`text-xs ${j === 2
-                    ? cell === "Active" ? "text-[#635BFF]" : cell === "Lead" ? "text-[#FF5996]" : "text-[#FF5996]"
+                    ? cell === "Active" ? "text-[#F8BC42]" : cell === "Lead" ? "text-[#FF5996]" : "text-[#FF5996]"
                     : "text-white/70"}`}>{cell}</span>
                 ))}
               </div>
@@ -53,10 +53,10 @@ function BuilderMock() {
       </div>
       {/* Prompt bar */}
       <div className="border-t border-white/[0.08] px-4 py-3 bg-[#071D33]/40">
-        <div className="flex items-center gap-2 rounded-lg border border-[#635BFF]/20 bg-[#635BFF]/5 px-3 py-2">
-          <span className="text-xs text-[#635BFF]">✦</span>
+        <div className="flex items-center gap-2 rounded-lg border border-[#F8BC42]/20 bg-[#F8BC42]/5 px-3 py-2">
+          <span className="text-xs text-[#F8BC42]">✦</span>
           <span className="text-xs text-[#8892A4]">add a revenue field to Contacts…</span>
-          <span className="ml-auto h-3.5 w-0.5 animate-pulse bg-[#635BFF]" />
+          <span className="ml-auto h-3.5 w-0.5 animate-pulse bg-[#F8BC42]" />
         </div>
       </div>
     </div>
@@ -94,15 +94,15 @@ export function HeroSection() {
     <section className="relative overflow-hidden pt-[68px]">
       <div className="relative mx-auto max-w-5xl px-6 pb-12 pt-20 text-center">
         {/* Badge */}
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#635BFF]/20 bg-[#635BFF]/5 px-4 py-1.5">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#635BFF] shadow-sm shadow-[#635BFF]" />
-          <span className="text-xs font-semibold text-[#635BFF]">Now in public beta — schema versioning live</span>
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#F8BC42]/20 bg-[#F8BC42]/5 px-4 py-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC42] shadow-sm shadow-[#F8BC42]" />
+          <span className="text-xs font-semibold text-[#F8BC42]">Now in public beta — schema versioning live</span>
         </div>
 
         {/* Headline */}
         <h1 className="animate-fade-in-up mx-auto max-w-4xl text-5xl font-extrabold leading-[1.1] tracking-tight text-[#1A1F36] sm:text-6xl lg:text-7xl">
           Build operational apps at the speed of{" "}
-          <span className="bg-gradient-to-r from-[#635BFF] to-[#FF5996] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[#F8BC42] to-[#FF5996] bg-clip-text text-transparent">
             thought.
           </span>
         </h1>
@@ -115,7 +115,7 @@ export function HeroSection() {
 
         {/* Search/Input Area */}
         <form onSubmit={handleGenerate} className="animate-fade-in-up mx-auto mt-10 max-w-2xl w-full" style={{ animationDelay: "0.15s" }}>
-          <div className="relative flex items-center p-2 rounded-2xl bg-white border border-[#635BFF]/10 shadow-lg shadow-[#635BFF]/5 hover:border-[#635BFF]/30 transition-all duration-300 focus-within:border-[#635BFF] focus-within:ring-4 focus-within:ring-[#635BFF]/15">
+          <div className="relative flex items-center p-2 rounded-2xl bg-white border border-[#F8BC42]/10 shadow-lg shadow-[#F8BC42]/5 hover:border-[#F8BC42]/30 transition-all duration-300 focus-within:border-[#F8BC42] focus-within:ring-4 focus-within:ring-[#F8BC42]/15">
             <input
               type="text"
               value={prompt}
@@ -125,7 +125,7 @@ export function HeroSection() {
             />
             <button
               type="submit"
-              className="shrink-0 flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-[#635BFF] to-[#544cf4] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#635BFF]/20 hover:opacity-95 transition-all duration-300 hover:-translate-y-[3px] hover:shadow-lg hover:shadow-[#635BFF]/30 active:scale-[0.98] cursor-pointer"
+              className="shrink-0 flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-[#F8BC42] to-[#E0A22B] px-6 py-3 text-sm font-semibold text-white shadow-md shadow-[#F8BC42]/20 hover:opacity-95 transition-all duration-300 hover:-translate-y-[3px] hover:shadow-lg hover:shadow-[#F8BC42]/30 active:scale-[0.98] cursor-pointer"
             >
               <span>Generate</span>
               <ArrowRight size={15} />
@@ -141,7 +141,7 @@ export function HeroSection() {
               key={chipText}
               type="button"
               onClick={() => handleChipClick(chipText)}
-              className="rounded-full bg-white border border-[#635BFF]/10 px-4 py-1.5 text-xs font-medium text-[#475467] shadow-sm hover:bg-[#F4F5FF] hover:border-[#635BFF] hover:text-[#635BFF] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+              className="rounded-full bg-white border border-[#F8BC42]/10 px-4 py-1.5 text-xs font-medium text-[#475467] shadow-sm hover:bg-[#F4F5FF] hover:border-[#F8BC42] hover:text-[#F8BC42] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
             >
               {chipText}
             </button>
@@ -154,7 +154,7 @@ export function HeroSection() {
           {trustBadges.map((badge) => (
             <span key={badge.label}
               className="flex items-center gap-2 text-xs font-semibold text-[#667085]">
-              <span className="text-[#635BFF]">{badge.icon}</span>
+              <span className="text-[#F8BC42]">{badge.icon}</span>
               {badge.label}
             </span>
           ))}

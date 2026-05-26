@@ -10,7 +10,7 @@ interface LogLine {
 }
 
 const levelColors: Record<LogLine["level"], string> = {
-  info: "#635BFF",
+  info: "#F8BC42",
   success: "#00D4B1",
   warn: "#F8BC42",
   error: "#FF5996",

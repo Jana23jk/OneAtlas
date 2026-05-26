@@ -47,7 +47,7 @@ export function PropertiesPanel() {
         <button
           type="button"
           onClick={toggleRight}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#635BFF]/30 hover:bg-[rgba(99, 91, 255,0.08)] hover:text-[#635BFF]"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#F8BC42]/30 hover:bg-[rgba(248, 188, 66,0.08)] hover:text-[#F8BC42]"
           title="Collapse Panel"
         >
           <ChevronRight size={14} />
@@ -59,7 +59,7 @@ export function PropertiesPanel() {
           <div className="space-y-5">
             <div>
               <div className="mb-2 flex items-center gap-2">
-                <Settings size={16} className="text-[#635BFF]" />
+                <Settings size={16} className="text-[#F8BC42]" />
                 <h3 className="text-lg font-bold text-[#1A1F36]">
                   {selectedComponent.name}
                 </h3>
@@ -103,7 +103,7 @@ export function PropertiesPanel() {
 
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <History size={16} className="text-[#635BFF]" />
+            <History size={16} className="text-[#F8BC42]" />
             <h3 className="text-lg font-bold text-[#1A1F36]">Edit history</h3>
           </div>
 
@@ -119,7 +119,7 @@ export function PropertiesPanel() {
                       {log.instruction}
                     </p>
                     {log.success ? (
-                      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#635BFF]" />
+                      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#F8BC42]" />
                     ) : (
                       <XCircle size={14} className="mt-0.5 shrink-0 text-[#1A1F36]" />
                     )}

@@ -44,7 +44,7 @@ const steps: Step[] = [
     description:
       "Type a natural-language prompt like 'a CRM for tracking customer deals' and OneAtlas understands your intent instantly.",
     Icon: PencilIcon,
-    accent: "#635BFF",
+    accent: "#F8BC42",
   },
   {
     number: "02",
@@ -52,7 +52,7 @@ const steps: Step[] = [
     description:
       "Your app's data model, components, and layout are produced as a versioned JSON schema — stored, editable, and auditable.",
     Icon: TableIcon,
-    accent: "#635BFF",
+    accent: "#F8BC42",
   },
   {
     number: "03",
@@ -78,7 +78,7 @@ export function HowItWorksSection() {
       <div className="relative grid gap-8 md:grid-cols-3">
         {/* Dashed connector line — desktop only */}
         <div
-          className="pointer-events-none absolute left-[calc(33.33%+2rem)] right-[calc(33.33%-2rem)] top-16 hidden border-t-2 border-dashed border-[#635BFF]/15 md:block"
+          className="pointer-events-none absolute left-[calc(33.33%+2rem)] right-[calc(33.33%-2rem)] top-16 hidden border-t-2 border-dashed border-[#F8BC42]/15 md:block"
           aria-hidden
         />
 

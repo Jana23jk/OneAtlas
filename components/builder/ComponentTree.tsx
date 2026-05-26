@@ -13,15 +13,15 @@ export function ComponentTree() {
   const getIcon = (type: string) => {
     switch (type) {
       case "table":
-        return <Table2 size={16} className="text-[#635BFF]" />;
+        return <Table2 size={16} className="text-[#F8BC42]" />;
       case "metric":
         return <TrendingUp size={16} className="text-[#FF5996]" />;
       case "chart":
         return <BarChart3 size={16} className="text-[#FF5996]" />;
       case "form":
-        return <ClipboardList size={16} className="text-[#635BFF]" />;
+        return <ClipboardList size={16} className="text-[#F8BC42]" />;
       case "list":
-        return <List size={16} className="text-[#635BFF]" />;
+        return <List size={16} className="text-[#F8BC42]" />;
       default:
         return <Box size={16} className="text-[#98A2B3]" />;
     }
@@ -40,7 +40,7 @@ export function ComponentTree() {
         <button
           type="button"
           onClick={toggleLeft}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#635BFF]/30 hover:bg-[rgba(99, 91, 255,0.08)] hover:text-[#635BFF]"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#F8BC42]/30 hover:bg-[rgba(248, 188, 66,0.08)] hover:text-[#F8BC42]"
           title="Collapse Panel"
         >
           <ChevronLeft size={14} />
@@ -58,7 +58,7 @@ export function ComponentTree() {
               className={cn(
                 "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium transition-all duration-300",
                 isSelected
-                  ? "border-[#635BFF]/40 bg-[rgba(99, 91, 255,0.1)] text-[#635BFF] shadow-soft"
+                  ? "border-[#F8BC42]/40 bg-[rgba(248, 188, 66,0.1)] text-[#F8BC42] shadow-soft"
                   : "border-transparent text-[#667085] hover:border-[#E7EAF5] hover:bg-[#FAFBFF] hover:text-[#1A1F36]",
               )}
             >

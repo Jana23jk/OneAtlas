@@ -14,7 +14,7 @@ export interface DeploymentRecord {
 /** Status colors mapping */
 export const STATUS_COLORS: Record<DeploymentStatus, string> = {
   success: "#00D4B1",
-  running: "#635BFF",
+  running: "#F8BC42",
   pending: "#F8BC42",
   failed: "#FF5996",
 };
