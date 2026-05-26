@@ -2,7 +2,7 @@
 
 import { useBuilderStore } from "@/store/builderStore";
 import type { SchemaComponent, AppSchema } from "@/types/app";
-import { PanelLeftOpen, PanelRightOpen, Database } from "lucide-react";
+import { PanelLeftOpen, PanelRightOpen } from "lucide-react";
 
 interface AppCanvasProps {
   schema?: AppSchema | null;

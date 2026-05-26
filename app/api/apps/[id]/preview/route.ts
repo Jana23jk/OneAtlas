@@ -13,7 +13,7 @@ import { jsonToAppSchema, appSchemaToJson } from "@/lib/schema-json";
 const PREVIEW_TTL_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 
 export async function POST(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<ApiResponse<PreviewCreateResponse>>> {
   const { id } = await params;
@@ -47,11 +47,12 @@ export async function POST(
     );
   }
 
-  // 2. Fetch the current live RuntimeSchema
-  let runtimeRecord: Awaited<ReturnType<typeof prisma.runtimeSchema.findUnique>>;
+  // 2. Fetch runtime schema version
+  let runtimeSchema: Awaited<ReturnType<typeof prisma.runtimeSchema.findFirst>> = null;
   try {
-    runtimeRecord = await prisma.runtimeSchema.findUnique({
+    runtimeSchema = await prisma.runtimeSchema.findFirst({
       where: { appId: id },
+      orderBy: { version: "desc" },
     });
   } catch (error) {
     console.error("[POST /api/apps/[id]/preview] DB findUnique RuntimeSchema error:", error);
@@ -64,24 +65,20 @@ export async function POST(
     );
   }
 
-  if (!runtimeRecord) {
+  if (!runtimeSchema) {
     return NextResponse.json(
       {
         data: null,
-        error: {
-          code: "NOT_FOUND",
-          message: `RuntimeSchema for app "${id}" not found`,
-        },
+        error: { code: "NOT_FOUND", message: `No schema version found for app "${id}"` },
       },
       { status: 404 }
     );
   }
 
-  // 3. Generate token + expiry, persist the frozen snapshot
-  // Round-trip through domain type to get a safe InputJsonValue (not nullable)
-  const frozenSchemaJson = appSchemaToJson(jsonToAppSchema(runtimeRecord.schema));
+  // 3. Create frozen preview snapshot
   const token = nanoid(12);
   const expiresAt = new Date(Date.now() + PREVIEW_TTL_MS);
+  const frozenSchemaJson = appSchemaToJson(jsonToAppSchema(runtimeSchema.schema));
 
   try {
     await prisma.previewSnapshot.create({
@@ -103,9 +100,18 @@ export async function POST(
     );
   }
 
-  // 4. Build the shareable URL using the env var (falls back to localhost in dev)
+  // 4. Build the shareable URL. We dynamically use the request's origin so that it automatically
+  // matches the current domain (e.g. localhost, vercel preview deploy, or custom production domain).
+  let reqOrigin = "";
+  try {
+    reqOrigin = new URL(request.url).origin;
+  } catch (err) {
+    console.warn("Could not parse request.url:", err);
+  }
+
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ??
+    reqOrigin ||
+    process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ||
     "http://localhost:3000";
   const previewUrl = `${baseUrl}/preview/${token}`;
 

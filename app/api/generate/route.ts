@@ -5,7 +5,7 @@ import type { ApiResponse, GenerateResponse } from "@/types/api";
 import type { AppSchema } from "@/types/app";
 import { matchTemplate, suggestReformulation } from "@/services/templateMatcher";
 import { prisma } from "@/lib/prisma";
-import { appSchemaToJson, jsonToAppSchema } from "@/lib/schema-json";
+import { appSchemaToJson } from "@/lib/schema-json";
 
 // ─── Validation schema ────────────────────────────────────────────────────────
 

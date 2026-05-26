@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useBuilderStore } from "@/store/builderStore";
-import { ChevronRight, Settings, History, Calendar, CheckCircle2, XCircle, Clock } from "lucide-react";
+import { ChevronRight, Settings, History, CheckCircle2, XCircle, Clock } from "lucide-react";
 
 export function PropertiesPanel() {
   const appId = useBuilderStore((state) => state.appId);
