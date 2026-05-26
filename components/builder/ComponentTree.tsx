@@ -13,17 +13,17 @@ export function ComponentTree() {
   const getIcon = (type: string) => {
     switch (type) {
       case "table":
-        return <Table2 size={16} className="text-brand-teal" />;
+        return <Table2 size={16} className="text-[#00D4B1]" />;
       case "metric":
-        return <TrendingUp size={16} className="text-brand-yellow" />;
+        return <TrendingUp size={16} className="text-[#F8BC42]" />;
       case "chart":
-        return <BarChart3 size={16} className="text-brand-pink" />;
+        return <BarChart3 size={16} className="text-[#FF5996]" />;
       case "form":
-        return <ClipboardList size={16} className="text-brand-primary" />;
+        return <ClipboardList size={16} className="text-[#635BFF]" />;
       case "list":
-        return <List size={16} className="text-brand-cyan" />;
+        return <List size={16} className="text-[#00D4FF]" />;
       default:
-        return <Box size={16} className="text-text-secondary" />;
+        return <Box size={16} className="text-[#98A2B3]" />;
     }
   };
 
@@ -32,22 +32,22 @@ export function ComponentTree() {
     : [];
 
   return (
-    <div className="flex h-full flex-col bg-white">
-      <div className="flex h-12 shrink-0 items-center justify-between border-b border-surface-border px-4">
-        <span className="text-xs font-bold uppercase tracking-wider text-text-secondary">
+    <div className="flex h-full flex-col border-r border-[#E7EAF5] bg-white">
+      <div className="flex h-14 shrink-0 items-center justify-between border-b border-[#E7EAF5] px-5">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#667085]">
           Components
-        </span>
+        </h2>
         <button
           type="button"
           onClick={toggleLeft}
-          className="flex h-7 w-7 items-center justify-center rounded-lg border border-surface-border text-text-secondary transition-all hover:border-brand-primary/30 hover:bg-brand-primary/5 hover:text-brand-primary"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#635BFF]/30 hover:bg-[rgba(99,91,255,0.08)] hover:text-[#635BFF]"
           title="Collapse Panel"
         >
           <ChevronLeft size={14} />
         </button>
       </div>
 
-      <div className="flex-1 space-y-1 overflow-y-auto p-3">
+      <div className="flex-1 space-y-1 overflow-y-auto p-4">
         {sortedComponents.map((comp) => {
           const isSelected = comp.id === selectedComponentId;
           return (
@@ -56,10 +56,10 @@ export function ComponentTree() {
               type="button"
               onClick={() => setSelectedComponentId(comp.id)}
               className={cn(
-                "flex w-full items-center gap-3 rounded-xl border px-3 py-2 text-left text-sm font-medium transition-all duration-300",
+                "flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium transition-all duration-300",
                 isSelected
-                  ? "border-brand-primary/30 bg-brand-primary/10 text-brand-primary"
-                  : "border-transparent text-text-secondary hover:border-surface-border hover:bg-surface-bg hover:text-text-primary",
+                  ? "border-[#635BFF]/40 bg-[rgba(99,91,255,0.1)] text-[#635BFF] shadow-soft"
+                  : "border-transparent text-[#667085] hover:border-[#E7EAF5] hover:bg-[#FAFBFF] hover:text-[#0A2540]",
               )}
             >
               {getIcon(comp.type)}
@@ -68,9 +68,7 @@ export function ComponentTree() {
           );
         })}
         {sortedComponents.length === 0 && (
-          <p className="py-4 text-center text-xs italic text-text-secondary">
-            No components
-          </p>
+          <p className="py-6 text-center text-sm text-[#667085]">No components</p>
         )}
       </div>
     </div>

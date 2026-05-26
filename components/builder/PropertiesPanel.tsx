@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useBuilderStore } from "@/store/builderStore";
 import { ChevronRight, Settings, History, CheckCircle2, XCircle, Clock } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export function PropertiesPanel() {
   const appId = useBuilderStore((state) => state.appId);
@@ -12,7 +13,6 @@ export function PropertiesPanel() {
   const setHistory = useBuilderStore((state) => state.setHistory);
   const toggleRight = useBuilderStore((state) => state.toggleRight);
 
-  // Sync edit history from server on mount
   useEffect(() => {
     if (!appId) return;
     fetch(`/api/apps/${appId}/history`)
@@ -29,103 +29,112 @@ export function PropertiesPanel() {
 
   const getFormatTime = (isoString: string) => {
     try {
-      const d = new Date(isoString);
-      return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      return new Date(isoString).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      });
     } catch {
       return "00:00";
     }
   };
 
   return (
-    <div className="flex h-full flex-col overflow-hidden bg-white">
-      {/* Header section with Collapse Toggle */}
-      <div className="flex h-12 items-center justify-between border-b border-white/[0.08] px-4 shrink-0">
-        <span className="text-xs font-bold uppercase tracking-wider text-[#8892A4]">
+    <div className="flex h-full flex-col overflow-hidden border-l border-[#E7EAF5] bg-white">
+      <div className="flex h-14 shrink-0 items-center justify-between border-b border-[#E7EAF5] px-5">
+        <h2 className="text-sm font-bold uppercase tracking-wider text-[#667085]">
           Properties
-        </span>
+        </h2>
         <button
+          type="button"
           onClick={toggleRight}
-          className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/10 text-white/50 hover:text-white transition-all hover:bg-white/5"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#635BFF]/30 hover:bg-[rgba(99,91,255,0.08)] hover:text-[#635BFF]"
           title="Collapse Panel"
-          aria-label="Collapse properties panel"
         >
           <ChevronRight size={14} />
         </button>
       </div>
 
-      {/* Main properties detail */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-6">
+      <div className="flex-1 space-y-8 overflow-y-auto p-5">
         {selectedComponent ? (
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-white/90">
-              <Settings size={14} className="text-[#635BFF]" />
-              <h3 className="text-sm font-semibold">{selectedComponent.name}</h3>
+          <div className="space-y-5">
+            <div>
+              <div className="mb-2 flex items-center gap-2">
+                <Settings size={16} className="text-[#635BFF]" />
+                <h3 className="text-lg font-bold text-[#0A2540]">
+                  {selectedComponent.name}
+                </h3>
+              </div>
+              <p className="text-sm text-[#667085]">
+                Component type:{" "}
+                <span className="font-medium capitalize text-[#0A2540]">
+                  {selectedComponent.type}
+                </span>
+              </p>
             </div>
 
-            {/* Field definitions list */}
-            <div className="space-y-2">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[#8892A4]">
+            <div className="space-y-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#667085]">
                 Fields ({selectedComponent.fields.length})
-              </span>
-              <div className="space-y-1.5">
+              </p>
+              <div className="space-y-2">
                 {selectedComponent.fields.map((f) => (
                   <div
                     key={f.id}
-                    className="flex items-center justify-between rounded-lg border border-white/5 bg-white/[0.01] px-3 py-2 text-xs"
+                    className="flex items-center justify-between rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-4 py-3"
                   >
-                    <span className="font-medium text-white/80">{f.name}</span>
-                    <span className="rounded bg-white/5 border border-white/10 px-1.5 py-0.5 text-[9px] font-mono uppercase text-white/50">
+                    <span className="text-sm font-semibold text-[#0A2540]">{f.name}</span>
+                    <Badge variant="outline" className="font-mono text-[10px] uppercase">
                       {f.type}
-                    </span>
+                    </Badge>
                   </div>
                 ))}
               </div>
             </div>
           </div>
         ) : (
-          <p className="text-xs italic text-white/30 py-4 text-center">
-            No component selected. Click a component in the canvas to see properties.
-          </p>
+          <div className="rounded-card border border-dashed border-[#E7EAF5] bg-[#FAFBFF] px-4 py-8 text-center">
+            <p className="text-sm text-[#667085]">
+              Select a component on the canvas to view its properties.
+            </p>
+          </div>
         )}
 
-        <hr className="border-white/[0.08]" />
+        <hr className="border-[#E7EAF5]" />
 
-        {/* Edit History Section */}
         <div className="space-y-4">
-          <div className="flex items-center gap-2 text-white/90">
-            <History size={14} className="text-[#00D4B1]" />
-            <h3 className="text-sm font-semibold">Edit History</h3>
+          <div className="flex items-center gap-2">
+            <History size={16} className="text-[#00D4B1]" />
+            <h3 className="text-lg font-bold text-[#0A2540]">Edit history</h3>
           </div>
 
-          <div className="space-y-2.5">
+          <div className="space-y-3">
             {history.length > 0 ? (
               [...history].reverse().map((log) => (
                 <div
                   key={log.id}
-                  className="rounded-lg border border-white/5 bg-white/[0.01] p-3 text-xs space-y-1.5"
+                  className="rounded-xl border border-[#E7EAF5] bg-white p-4 shadow-soft transition-shadow hover:shadow-card"
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <span className="font-medium text-white/70 line-clamp-2 leading-relaxed">
+                    <p className="text-sm font-medium leading-relaxed text-[#0A2540] line-clamp-2">
                       {log.instruction}
-                    </span>
-                    {/* Status dot */}
+                    </p>
                     {log.success ? (
-                      <CheckCircle2 size={12} className="text-[#00D4B1] shrink-0 mt-0.5" />
+                      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#00D4B1]" />
                     ) : (
-                      <XCircle size={12} className="text-red-400 shrink-0 mt-0.5" />
+                      <XCircle size={14} className="mt-0.5 shrink-0 text-red-500" />
                     )}
                   </div>
-                  <div className="flex items-center justify-between text-[10px] text-white/40">
+                  <div className="mt-2 flex items-center justify-between text-xs text-[#98A2B3]">
                     <span className="flex items-center gap-1">
-                      <Clock size={10} />
+                      <Clock size={12} />
                       {getFormatTime(log.createdAt)}
                     </span>
-                    <span className="font-mono text-[9px]">v{log.schemaVersionAfter}</span>
+                    <span className="font-mono">v{log.schemaVersionAfter}</span>
                   </div>
                 </div>
               ))
             ) : (
-              <p className="text-xs italic text-white/30 text-center py-4">No mutations log</p>
+              <p className="py-4 text-center text-sm text-[#667085]">No edits yet</p>
             )}
           </div>
         </div>
@@ -133,4 +142,5 @@ export function PropertiesPanel() {
     </div>
   );
 }
+
 export default PropertiesPanel;

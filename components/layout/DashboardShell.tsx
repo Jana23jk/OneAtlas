@@ -27,8 +27,8 @@ export function DashboardShell({
       />
       <div className="flex flex-1 flex-col overflow-hidden">
         {topBar}
-        <div className="flex-1 overflow-hidden bg-gradient-to-b from-[#f7f8ff] to-white">
-          {children}
+        <div className="builder-workspace relative flex-1 overflow-hidden">
+          <div className="relative z-10 h-full">{children}</div>
         </div>
         {statusBar}
       </div>

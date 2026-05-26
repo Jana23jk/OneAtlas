@@ -50,15 +50,17 @@ export function BuilderClient({
       appId={appId}
       topBar={<BuilderTopBar />}
       statusBar={
-        <div className="flex h-8 shrink-0 items-center justify-between border-t border-surface-border bg-white px-4 text-[11px] text-text-secondary">
-          <span>Schema v{currentSchema.version}</span>
-          <span className="text-brand-teal">● Connected</span>
+        <div className="flex h-9 shrink-0 items-center justify-between border-t border-[#E7EAF5] bg-white px-5 text-xs text-[#667085]">
+          <span>
+            Schema <strong className="text-[#0A2540]">v{currentSchema.version}</strong>
+          </span>
+          <span className="font-medium text-[#00D4B1]">● Connected</span>
         </div>
       }
     >
       <div className="flex h-full overflow-hidden">
         <div
-          className={`hidden border-r border-surface-border bg-white transition-all duration-300 md:block ${
+          className={`hidden transition-all duration-300 md:block ${
             leftCollapsed ? "w-0 overflow-hidden opacity-0" : "w-[260px]"
           }`}
         >
@@ -71,8 +73,8 @@ export function BuilderClient({
         </div>
 
         <div
-          className={`hidden border-l border-surface-border bg-white transition-all duration-300 md:block ${
-            rightCollapsed ? "w-0 overflow-hidden opacity-0" : "w-[320px]"
+          className={`hidden transition-all duration-300 md:block ${
+            rightCollapsed ? "w-0 overflow-hidden opacity-0" : "w-[340px]"
           }`}
         >
           <PropertiesPanel />
