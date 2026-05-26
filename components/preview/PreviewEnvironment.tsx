@@ -128,7 +128,7 @@ export function PreviewEnvironment({
             type="button"
             onClick={handleBack}
             disabled={historyIndex === 0}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#0A2540] disabled:opacity-40"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#1A1F36] disabled:opacity-40"
             aria-label="Back"
           >
             <ArrowLeft size={16} />
@@ -137,7 +137,7 @@ export function PreviewEnvironment({
             type="button"
             onClick={handleForward}
             disabled={historyIndex >= 2}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#0A2540] disabled:opacity-40"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#1A1F36] disabled:opacity-40"
             aria-label="Forward"
           >
             <ArrowRight size={16} />
@@ -145,7 +145,7 @@ export function PreviewEnvironment({
           <button
             type="button"
             onClick={handleRefresh}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#635BFF]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#7A73FF]"
             aria-label="Refresh preview"
           >
             <RefreshCw size={16} className={refreshKey > 0 ? "animate-spin" : ""} />
@@ -153,17 +153,17 @@ export function PreviewEnvironment({
         </div>
 
         <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-4 py-2">
-          <span className="shrink-0 rounded-md bg-[rgba(99,91,255,0.12)] px-2 py-0.5 text-[10px] font-bold uppercase text-[#635BFF]">
+          <span className="shrink-0 rounded-md bg-[rgba(122, 115, 255,0.12)] px-2 py-0.5 text-[10px] font-bold uppercase text-[#7A73FF]">
             Preview
           </span>
-          <span className="truncate font-mono text-sm text-[#0A2540]">{displayUrl}</span>
+          <span className="truncate font-mono text-sm text-[#1A1F36]">{displayUrl}</span>
           <button
             type="button"
             onClick={handleCopyUrl}
-            className="ml-auto shrink-0 rounded p-1 text-[#667085] hover:text-[#635BFF]"
+            className="ml-auto shrink-0 rounded p-1 text-[#667085] hover:text-[#7A73FF]"
             aria-label="Copy URL"
           >
-            {copied ? <Check size={14} className="text-[#00D4B1]" /> : <Copy size={14} />}
+            {copied ? <Check size={14} className="text-[#7A73FF]" /> : <Copy size={14} />}
           </button>
         </div>
 
@@ -176,7 +176,7 @@ export function PreviewEnvironment({
               className={cn(
                 "flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all",
                 device === d.id
-                  ? "bg-gradient-to-r from-[#635BFF] to-[#7A73FF] text-white shadow-sm"
+                  ? "bg-gradient-to-r from-[#7A73FF] to-[#6B64E8] text-white shadow-sm"
                   : "text-[#667085] hover:bg-[#FAFBFF]",
               )}
             >
@@ -191,7 +191,7 @@ export function PreviewEnvironment({
             href={fullPreviewUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-1.5 rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#0A2540] transition-colors hover:border-[#635BFF]/30 sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#1A1F36] transition-colors hover:border-[#7A73FF]/30 sm:inline-flex"
           >
             <ExternalLink size={14} />
             Open tab
@@ -206,7 +206,7 @@ export function PreviewEnvironment({
           </button>
           <Link
             href="/generate"
-            className="hidden rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#635BFF] transition-colors hover:bg-[rgba(99,91,255,0.08)] lg:inline-block"
+            className="hidden rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#7A73FF] transition-colors hover:bg-[rgba(122, 115, 255,0.08)] lg:inline-block"
           >
             Create your own
           </Link>
@@ -223,7 +223,7 @@ export function PreviewEnvironment({
               onClick={() => setDevice(d.id)}
               className={cn(
                 "flex flex-1 items-center justify-center gap-1 rounded-md py-1.5 text-[10px] font-semibold",
-                device === d.id ? "bg-white text-[#635BFF] shadow-sm" : "text-[#667085]",
+                device === d.id ? "bg-white text-[#7A73FF] shadow-sm" : "text-[#667085]",
               )}
             >
               {d.icon}
@@ -237,13 +237,13 @@ export function PreviewEnvironment({
         <main className="flex flex-1 flex-col overflow-hidden p-4 lg:p-8">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-2 px-1">
             <div>
-              <h1 className="text-lg font-bold text-[#0A2540]">{appName}</h1>
+              <h1 className="text-lg font-bold text-[#1A1F36]">{appName}</h1>
               <p className="text-xs text-[#667085]">
                 {templateName} · v{schemaVersion} · Snapshot {new Date(createdAt).toLocaleDateString()}
               </p>
             </div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#00D4B1]/30 bg-[rgba(0,212,177,0.1)] px-3 py-1 text-xs font-semibold text-[#00D4B1]">
-              <span className="status-pulse-dot status-pulse-success h-2 w-2 rounded-full bg-[#00D4B1]" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#7A73FF]/30 bg-[rgba(122, 115, 255,0.1)] px-3 py-1 text-xs font-semibold text-[#7A73FF]">
+              <span className="status-pulse-dot status-pulse-success h-2 w-2 rounded-full bg-[#7A73FF]" />
               Live preview
             </span>
           </div>
@@ -266,24 +266,24 @@ export function PreviewEnvironment({
         {/* Right sidebar — preview tools */}
         <aside className="hidden w-[300px] shrink-0 flex-col gap-4 overflow-y-auto border-l border-[#E7EAF5] bg-white/80 p-4 backdrop-blur-sm xl:flex">
           <div>
-            <h2 className="text-sm font-bold text-[#0A2540]">Preview insights</h2>
+            <h2 className="text-sm font-bold text-[#1A1F36]">Preview insights</h2>
             <p className="text-xs text-[#667085]">Quality signals for this snapshot</p>
           </div>
 
-          <ScoreCard label="Performance" value={scores.performance} color="#00D4B1" />
-          <ScoreCard label="Accessibility" value={scores.accessibility} color="#635BFF" />
+          <ScoreCard label="Performance" value={scores.performance} color="#7A73FF" />
+          <ScoreCard label="Accessibility" value={scores.accessibility} color="#7A73FF" />
           <div className="preview-insight-card">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-[#667085]">Page load</span>
-              <Gauge size={16} className="text-[#00D4FF]" />
+              <Gauge size={16} className="text-[#7A73FF]" />
             </div>
-            <p className="mt-2 text-2xl font-bold text-[#0A2540]">{scores.loadTime}</p>
+            <p className="mt-2 text-2xl font-bold text-[#1A1F36]">{scores.loadTime}</p>
           </div>
-          <ScoreCard label="SEO" value={scores.seo} color="#F8BC42" />
+          <ScoreCard label="SEO" value={scores.seo} color="#FFB17A" />
 
           <div className="preview-insight-card">
             <span className="text-sm font-medium text-[#667085]">Responsive check</span>
-            <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-[#00D4B1]">
+            <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-[#7A73FF]">
               <Check size={16} />
               Passed at {device} breakpoint
             </p>
@@ -292,7 +292,7 @@ export function PreviewEnvironment({
           <div className="preview-insight-card flex-1">
             <div className="mb-3 flex items-center gap-2">
               <Terminal size={16} className="text-[#667085]" />
-              <span className="text-sm font-semibold text-[#0A2540]">Console</span>
+              <span className="text-sm font-semibold text-[#1A1F36]">Console</span>
               <ChevronDown size={14} className="ml-auto text-[#98A2B3]" />
             </div>
             <div className="max-h-40 space-y-2 overflow-y-auto font-mono text-[11px]">
@@ -301,9 +301,9 @@ export function PreviewEnvironment({
                   key={i}
                   className={
                     line.level === "warn"
-                      ? "text-[#F8BC42]"
+                      ? "text-[#FFB17A]"
                       : line.level === "info"
-                        ? "text-[#00D4FF]"
+                        ? "text-[#7A73FF]"
                         : "text-[#667085]"
                   }
                 >

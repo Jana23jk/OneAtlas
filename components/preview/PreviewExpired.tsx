@@ -7,11 +7,11 @@ export function PreviewExpired() {
     <AppBackground className="flex min-h-screen items-center justify-center px-4 py-16">
       <div className="z-10 w-full max-w-md animate-fade-in-up">
         <div className="dashboard-card flex flex-col items-center gap-6 p-10 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgba(255,89,150,0.12)] text-[#FF5996]">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgba(255, 177, 122,0.12)] text-[#FFB17A]">
             <Clock size={28} />
           </div>
           <div className="space-y-2">
-            <h1 className="text-2xl font-bold text-[#0A2540]">Preview expired</h1>
+            <h1 className="text-2xl font-bold text-[#1A1F36]">Preview expired</h1>
             <p className="text-sm leading-relaxed text-[#667085]">
               This preview link has expired or been revoked. Generate a new preview from the
               builder.

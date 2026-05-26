@@ -17,7 +17,7 @@ export default function SecurityPage() {
     <PageShell>
       <div className="mx-auto max-w-4xl space-y-10 px-6 py-16">
         <div className="flex flex-col items-center text-center">
-          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-card border border-brand-teal/20 bg-brand-teal/10 text-brand-teal">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-card border border-brand-primary/20 bg-brand-primary/10 text-brand-primary">
             <Shield size={28} />
           </div>
           <SectionHeader
@@ -45,7 +45,7 @@ export default function SecurityPage() {
 
           <Card hover={false}>
             <CardHeader>
-              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-teal/10 text-brand-teal">
+              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-brand-primary/10 text-brand-primary">
                 <Eye size={20} />
               </div>
               <CardTitle>Frozen snapshots</CardTitle>
@@ -70,7 +70,7 @@ export default function SecurityPage() {
                   key={item}
                   className="flex items-center gap-2 text-sm text-text-secondary"
                 >
-                  <CheckCircle2 size={16} className="shrink-0 text-brand-teal" />
+                  <CheckCircle2 size={16} className="shrink-0 text-brand-primary" />
                   {item}
                 </li>
               ))}

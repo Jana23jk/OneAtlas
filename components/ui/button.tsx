@@ -9,14 +9,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-brand-primary to-brand-primary-light text-white shadow-primary hover:shadow-card-hover",
+          "bg-brand-primary text-white shadow-primary hover:bg-brand-primary-hover",
         secondary:
-          "border border-surface-border bg-white text-text-primary shadow-soft hover:border-brand-primary/30 hover:bg-brand-primary/5",
+          "bg-brand-accent text-[#1A1F36] shadow-soft hover:bg-brand-accent-hover",
         ghost:
           "bg-transparent text-text-secondary hover:bg-brand-primary/10 hover:text-brand-primary",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-soft hover:opacity-90",
-        cta: "bg-brand-pink text-white shadow-soft hover:opacity-90",
+          "bg-brand-dark text-white shadow-soft hover:opacity-90",
+        cta: "bg-brand-accent text-[#1A1F36] shadow-soft hover:bg-brand-accent-hover",
         link: "text-brand-primary underline-offset-4 hover:underline",
         outline:
           "border border-surface-border bg-white text-text-primary hover:border-brand-primary hover:text-brand-primary",

@@ -12,14 +12,10 @@ const config: Config = {
       colors: {
         brand: {
           primary: "var(--color-primary)",
-          "primary-light": "var(--color-primary-light)",
-          dark: "var(--color-dark)",
-          darker: "var(--color-darker)",
-          pink: "var(--color-accent-pink)",
-          orange: "var(--color-accent-orange)",
-          teal: "var(--color-accent-teal)",
-          cyan: "var(--color-accent-cyan)",
-          yellow: "var(--color-accent-yellow)",
+          "primary-hover": "var(--color-primary-hover)",
+          accent: "var(--color-accent)",
+          "accent-hover": "var(--color-accent-hover)",
+          dark: "var(--color-surface-dark)",
         },
         surface: {
           bg: "var(--color-bg)",

@@ -17,7 +17,7 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
           <div className="glow-pink bottom-0 right-0 opacity-50" aria-hidden />
 
           <Link href="/" className="relative z-10 text-2xl font-bold">
-            One<span className="text-brand-primary-light">Atlas</span>
+            One<span className="text-brand-primary">Atlas</span>
           </Link>
 
           <div className="relative z-10 space-y-6">
@@ -30,11 +30,11 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
             </p>
             <div className="flex gap-4">
               <div className="rounded-card border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
-                <p className="text-2xl font-bold text-brand-teal">5+</p>
+                <p className="text-2xl font-bold text-brand-primary">5+</p>
                 <p className="text-xs text-white/60">Templates</p>
               </div>
               <div className="rounded-card border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
-                <p className="text-2xl font-bold text-brand-cyan">∞</p>
+                <p className="text-2xl font-bold text-brand-primary">∞</p>
                 <p className="text-xs text-white/60">Schema edits</p>
               </div>
             </div>

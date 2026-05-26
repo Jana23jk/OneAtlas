@@ -52,9 +52,9 @@ export function BuilderClient({
       statusBar={
         <div className="flex h-9 shrink-0 items-center justify-between border-t border-[#E7EAF5] bg-white px-5 text-xs text-[#667085]">
           <span>
-            Schema <strong className="text-[#0A2540]">v{currentSchema.version}</strong>
+            Schema <strong className="text-[#1A1F36]">v{currentSchema.version}</strong>
           </span>
-          <span className="font-medium text-[#00D4B1]">● Connected</span>
+          <span className="font-medium text-[#7A73FF]">● Connected</span>
         </div>
       }
     >

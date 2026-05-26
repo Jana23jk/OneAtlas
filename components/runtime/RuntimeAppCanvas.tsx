@@ -75,10 +75,10 @@ const STOCK_MOVEMENTS = [
 
 function fieldIcon(field: SchemaField) {
   const key = field.name.toLowerCase();
-  if (key.includes("sku")) return <Hash size={14} className="text-[#635BFF]" />;
-  if (key.includes("quantity") || key.includes("stock")) return <Layers size={14} className="text-[#00D4B1]" />;
+  if (key.includes("sku")) return <Hash size={14} className="text-[#7A73FF]" />;
+  if (key.includes("quantity") || key.includes("stock")) return <Layers size={14} className="text-[#7A73FF]" />;
   if (key.includes("supplier")) return <Truck size={14} className="text-[#667085]" />;
-  if (key.includes("name") || key.includes("product")) return <Package size={14} className="text-[#635BFF]" />;
+  if (key.includes("name") || key.includes("product")) return <Package size={14} className="text-[#7A73FF]" />;
   return null;
 }
 
@@ -109,9 +109,9 @@ function getInventoryCellValue(
     if (key.includes("product")) return movement.product;
     if (key.includes("type")) {
       const colors: Record<string, string> = {
-        In: "#00D4B1",
-        Out: "#FF5996",
-        Adjustment: "#F8BC42",
+        In: "#7A73FF",
+        Out: "#FFB17A",
+        Adjustment: "#FFB17A",
       };
       const c = colors[movement.type] ?? "#667085";
       return (
@@ -145,7 +145,7 @@ function TableToolbar({ title, isInventory }: { title: string; isInventory: bool
   return (
     <div className="mb-6 flex flex-col gap-4 border-b border-[#E7EAF5] pb-5 sm:flex-row sm:items-center sm:justify-between">
       <div>
-        <h3 className="text-2xl font-bold text-[#0A2540]">{title}</h3>
+        <h3 className="text-2xl font-bold text-[#1A1F36]">{title}</h3>
         <p className="mt-1 text-sm text-[#667085]">
           {isInventory ? "Manage and monitor inventory records" : "Data table view"}
         </p>
@@ -158,26 +158,26 @@ function TableToolbar({ title, isInventory }: { title: string; isInventory: bool
             value={localSearch}
             onChange={(e) => setLocalSearch(e.target.value)}
             placeholder="Search…"
-            className="h-9 w-36 rounded-lg border border-[#E7EAF5] bg-[#FAFBFF] pl-8 pr-2 text-xs text-[#0A2540] outline-none focus:border-[#635BFF]"
+            className="h-9 w-36 rounded-lg border border-[#E7EAF5] bg-[#FAFBFF] pl-8 pr-2 text-xs text-[#1A1F36] outline-none focus:border-[#7A73FF]"
           />
         </div>
         <button
           type="button"
-          className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 text-xs font-semibold text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#0A2540]"
+          className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 text-xs font-semibold text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#1A1F36]"
         >
           <Filter size={14} />
           Filter
         </button>
         <button
           type="button"
-          className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 text-xs font-semibold text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#0A2540]"
+          className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 text-xs font-semibold text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#1A1F36]"
         >
           <ArrowDownUp size={14} />
           Sort
         </button>
         <button
           type="button"
-          className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 text-xs font-semibold text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#0A2540]"
+          className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 text-xs font-semibold text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#1A1F36]"
         >
           <Download size={14} />
           Export
@@ -233,7 +233,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
                 <tr key={i}>
                   {comp.fields.map((f) => (
                     <td key={f.id}>
-                      <span className="font-medium text-[#0A2540]">
+                      <span className="font-medium text-[#1A1F36]">
                         {isInventory
                           ? getInventoryCellValue(comp, f, i)
                           : getGenericDummy(f.name, f.type, i)}
@@ -265,7 +265,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
         const values = isInventory
           ? ["248", "14", "3"]
           : [`${(i + 1) * 425}`, `${(i + 1) * 120}`, "Active"];
-        const accents = ["#635BFF", "#F8BC42", "#FF5996"];
+        const accents = ["#7A73FF", "#FFB17A", "#FFB17A"];
         return (
           <div
             key={f.id}
@@ -275,8 +275,8 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
             <span className="block text-xs font-semibold uppercase tracking-wider text-[#667085]">
               {f.name}
             </span>
-            <span className="mt-2 block text-2xl font-bold text-[#0A2540]">{values[i] ?? "—"}</span>
-            <span className="mt-1 block text-xs font-medium" style={{ color: accents[i] ?? "#00D4B1" }}>
+            <span className="mt-2 block text-2xl font-bold text-[#1A1F36]">{values[i] ?? "—"}</span>
+            <span className="mt-1 block text-xs font-medium" style={{ color: accents[i] ?? "#7A73FF" }}>
               {isInventory ? "Live from warehouse sync" : "↑ 12% vs last month"}
             </span>
           </div>
@@ -288,7 +288,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
   const renderChart = (comp: SchemaComponent) => (
     <div className="rounded-2xl border border-[#E7EAF5] bg-[#FAFBFF] p-6">
       <div className="mb-4">
-        <h3 className="text-2xl font-bold text-[#0A2540]">{comp.name}</h3>
+        <h3 className="text-2xl font-bold text-[#1A1F36]">{comp.name}</h3>
         <p className="text-sm text-[#667085]">
           {isInventory ? "Stock distribution by category" : "Chart visualization"}
         </p>
@@ -304,7 +304,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
               <div key={bar.label} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
                 <div
                   style={{ height: `${bar.h}%` }}
-                  className="w-full rounded-t bg-gradient-to-t from-[#635BFF] to-[#7A73FF] opacity-90 transition-all hover:opacity-100"
+                  className="w-full rounded-t bg-gradient-to-t from-[#7A73FF] to-[#6B64E8] opacity-90 transition-all hover:opacity-100"
                 />
                 <span className="text-[10px] font-medium text-[#667085]">{bar.label}</span>
               </div>
@@ -313,7 +313,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
               <div key={i} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
                 <div
                   style={{ height: `${h}%` }}
-                  className="w-full rounded-t bg-gradient-to-t from-[#635BFF] to-[#7A73FF]"
+                  className="w-full rounded-t bg-gradient-to-t from-[#7A73FF] to-[#6B64E8]"
                 />
                 <span className="font-mono text-[10px] text-[#98A2B3]">Q{i + 1}</span>
               </div>
@@ -326,10 +326,10 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
     <ul className="divide-y divide-[#E7EAF5] overflow-hidden rounded-2xl border border-[#E7EAF5] bg-white">
       {[0, 1, 2].map((i) => (
         <li key={i} className="flex items-center gap-3 p-4 transition-colors hover:bg-[#F4F5FF]">
-          <div className="h-2 w-2 shrink-0 rounded-full bg-[#635BFF]" />
+          <div className="h-2 w-2 shrink-0 rounded-full bg-[#7A73FF]" />
           <div className="flex flex-1 flex-wrap justify-between gap-3 text-sm">
             {comp.fields.slice(0, 3).map((f) => (
-              <span key={f.id} className="text-[#0A2540]">
+              <span key={f.id} className="text-[#1A1F36]">
                 <span className="font-medium text-[#667085] capitalize">{f.name}:</span>{" "}
                 {getGenericDummy(f.name, f.type, i)}
               </span>
@@ -344,7 +344,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
     <div className="grid gap-4 rounded-2xl border border-[#E7EAF5] bg-[#FAFBFF] p-6 sm:grid-cols-2">
       {comp.fields.map((f) => (
         <div key={f.id} className="flex flex-col gap-2">
-          <label className="text-sm font-semibold capitalize text-[#0A2540]">{f.name}</label>
+          <label className="text-sm font-semibold capitalize text-[#1A1F36]">{f.name}</label>
           <input disabled type="text" className="input-premium w-full text-sm" />
         </div>
       ))}
@@ -356,7 +356,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
       {isInventory ? (
         <>
           <section className="reveal space-y-2">
-            <h2 className="text-2xl font-bold text-[#0A2540]">Inventory overview</h2>
+            <h2 className="text-2xl font-bold text-[#1A1F36]">Inventory overview</h2>
             <p className="text-sm text-[#667085]">
               Real-time warehouse metrics across products, stock levels, and fulfillment.
             </p>
@@ -381,7 +381,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
           {comp.type !== "table" ? (
             <div className="mb-6 flex items-start justify-between gap-4">
               <div>
-                <h3 className="text-2xl font-bold text-[#0A2540]">{comp.name}</h3>
+                <h3 className="text-2xl font-bold text-[#1A1F36]">{comp.name}</h3>
                 <p className="mt-1 font-mono text-xs text-[#98A2B3]">{comp.id}</p>
               </div>
               <Badge variant="outline" className="shrink-0 uppercase">

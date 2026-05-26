@@ -55,7 +55,7 @@ export function SchemaPreview({ schema }: SchemaPreviewProps) {
                     <span className="font-medium text-text-primary">{field.name}</span>
                     <span className="font-mono text-[9px] opacity-70">({field.type})</span>
                     {field.required ? (
-                      <span className="font-bold text-red-500">*</span>
+                      <span className="font-bold text-[#1A1F36]">*</span>
                     ) : null}
                   </span>
                 ))}

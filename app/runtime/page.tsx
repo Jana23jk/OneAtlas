@@ -26,10 +26,10 @@ export default async function RuntimePage() {
       <div className="deploy-page-bg relative z-10 h-full overflow-y-auto">
         <div className="mx-auto max-w-7xl space-y-10 px-6 py-10 pb-16 animate-fade-in-up">
           <header className="reveal space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#635BFF]">
+            <p className="text-xs font-semibold uppercase tracking-widest text-[#7A73FF]">
               Runtime & deploy
             </p>
-            <h1 className="text-3xl font-bold text-[#0A2540]">Deployment center</h1>
+            <h1 className="text-3xl font-bold text-[#1A1F36]">Deployment center</h1>
             <p className="max-w-2xl text-sm text-[#667085]">
               Manage live applications, monitor environments, and ship schema updates to the
               OneAtlas edge runtime.
@@ -67,7 +67,7 @@ export default async function RuntimePage() {
 
           <section className="space-y-4">
             <div>
-              <h2 className="text-2xl font-bold text-[#0A2540]">Your applications</h2>
+              <h2 className="text-2xl font-bold text-[#1A1F36]">Your applications</h2>
               <p className="text-sm text-[#667085]">
                 Open the deployment dashboard for any app to view timeline, logs, and status.
               </p>
@@ -92,7 +92,7 @@ export default async function RuntimePage() {
                     className="dashboard-card group flex items-center justify-between gap-4 transition-all hover:-translate-y-1"
                   >
                     <div>
-                      <h3 className="font-bold text-[#0A2540] group-hover:text-[#635BFF] transition-colors">
+                      <h3 className="font-bold text-[#1A1F36] group-hover:text-[#7A73FF] transition-colors">
                         {app.name}
                       </h3>
                       <p className="mt-1 text-xs text-[#667085]">
@@ -102,7 +102,7 @@ export default async function RuntimePage() {
                         {app._count.previewSnapshots} deployments
                       </p>
                     </div>
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[rgba(99,91,255,0.1)] text-[#635BFF] transition-transform group-hover:translate-x-1">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[rgba(122, 115, 255,0.1)] text-[#7A73FF] transition-transform group-hover:translate-x-1">
                       <ArrowRight size={18} />
                     </span>
                   </Link>

@@ -34,9 +34,9 @@ export function Footer() {
           <div className="flex flex-col gap-4 lg:col-span-2">
             <div className="flex items-center gap-2">
               <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden>
-                <path d="M14 2L25.26 8.5V21.5L14 28L2.74 21.5V8.5L14 2Z" stroke="#635BFF" strokeWidth="1.5" fill="none" />
-                <circle cx="14" cy="14" r="5" stroke="#00D4B1" strokeWidth="1.5" fill="none" />
-                <circle cx="14" cy="14" r="2" fill="#635BFF" />
+                <path d="M14 2L25.26 8.5V21.5L14 28L2.74 21.5V8.5L14 2Z" stroke="#7A73FF" strokeWidth="1.5" fill="none" />
+                <circle cx="14" cy="14" r="5" stroke="#7A73FF" strokeWidth="1.5" fill="none" />
+                <circle cx="14" cy="14" r="2" fill="#7A73FF" />
               </svg>
               <span className="text-base font-bold text-text-primary">OneAtlas</span>
             </div>

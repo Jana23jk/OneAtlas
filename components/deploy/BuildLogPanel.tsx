@@ -10,10 +10,10 @@ interface LogLine {
 }
 
 const levelColors: Record<LogLine["level"], string> = {
-  info: "#00D4FF",
-  success: "#00D4B1",
-  warn: "#F8BC42",
-  error: "#FF5996",
+  info: "#7A73FF",
+  success: "#7A73FF",
+  warn: "#FFB17A",
+  error: "#FFB17A",
   muted: "rgba(255,255,255,0.7)",
 };
 
@@ -38,16 +38,16 @@ export function BuildLogPanel({ lines, title = "Build logs" }: BuildLogPanelProp
     <div className="dashboard-card overflow-hidden p-0 reveal">
       <div className="flex items-center justify-between border-b border-[#E7EAF5] px-5 py-4">
         <div>
-          <h3 className="text-lg font-bold text-[#0A2540]">{title}</h3>
+          <h3 className="text-lg font-bold text-[#1A1F36]">{title}</h3>
           <p className="text-sm text-[#667085]">Live output from the latest build pipeline</p>
         </div>
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={handleCopy}
-            className="flex items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 py-1.5 text-xs font-medium text-[#667085] transition-colors hover:border-[#635BFF]/30 hover:text-[#635BFF]"
+            className="flex items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-white px-3 py-1.5 text-xs font-medium text-[#667085] transition-colors hover:border-brand-primary/30 hover:text-brand-primary"
           >
-            {copied ? <Check size={14} className="text-[#00D4B1]" /> : <Copy size={14} />}
+            {copied ? <Check size={14} className="text-brand-primary" /> : <Copy size={14} />}
             {copied ? "Copied" : "Copy"}
           </button>
           <button

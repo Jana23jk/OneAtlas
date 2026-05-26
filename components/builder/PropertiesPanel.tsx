@@ -47,7 +47,7 @@ export function PropertiesPanel() {
         <button
           type="button"
           onClick={toggleRight}
-          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#635BFF]/30 hover:bg-[rgba(99,91,255,0.08)] hover:text-[#635BFF]"
+          className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#7A73FF]/30 hover:bg-[rgba(122, 115, 255,0.08)] hover:text-[#7A73FF]"
           title="Collapse Panel"
         >
           <ChevronRight size={14} />
@@ -59,14 +59,14 @@ export function PropertiesPanel() {
           <div className="space-y-5">
             <div>
               <div className="mb-2 flex items-center gap-2">
-                <Settings size={16} className="text-[#635BFF]" />
-                <h3 className="text-lg font-bold text-[#0A2540]">
+                <Settings size={16} className="text-[#7A73FF]" />
+                <h3 className="text-lg font-bold text-[#1A1F36]">
                   {selectedComponent.name}
                 </h3>
               </div>
               <p className="text-sm text-[#667085]">
                 Component type:{" "}
-                <span className="font-medium capitalize text-[#0A2540]">
+                <span className="font-medium capitalize text-[#1A1F36]">
                   {selectedComponent.type}
                 </span>
               </p>
@@ -82,7 +82,7 @@ export function PropertiesPanel() {
                     key={f.id}
                     className="flex items-center justify-between rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-4 py-3"
                   >
-                    <span className="text-sm font-semibold text-[#0A2540]">{f.name}</span>
+                    <span className="text-sm font-semibold text-[#1A1F36]">{f.name}</span>
                     <Badge variant="outline" className="font-mono text-[10px] uppercase">
                       {f.type}
                     </Badge>
@@ -103,8 +103,8 @@ export function PropertiesPanel() {
 
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <History size={16} className="text-[#00D4B1]" />
-            <h3 className="text-lg font-bold text-[#0A2540]">Edit history</h3>
+            <History size={16} className="text-[#7A73FF]" />
+            <h3 className="text-lg font-bold text-[#1A1F36]">Edit history</h3>
           </div>
 
           <div className="space-y-3">
@@ -115,13 +115,13 @@ export function PropertiesPanel() {
                   className="rounded-xl border border-[#E7EAF5] bg-white p-4 shadow-soft transition-shadow hover:shadow-card"
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <p className="text-sm font-medium leading-relaxed text-[#0A2540] line-clamp-2">
+                    <p className="text-sm font-medium leading-relaxed text-[#1A1F36] line-clamp-2">
                       {log.instruction}
                     </p>
                     {log.success ? (
-                      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#00D4B1]" />
+                      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#7A73FF]" />
                     ) : (
-                      <XCircle size={14} className="mt-0.5 shrink-0 text-red-500" />
+                      <XCircle size={14} className="mt-0.5 shrink-0 text-[#1A1F36]" />
                     )}
                   </div>
                   <div className="mt-2 flex items-center justify-between text-xs text-[#98A2B3]">

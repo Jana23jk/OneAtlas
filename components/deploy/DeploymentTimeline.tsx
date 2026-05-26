@@ -46,7 +46,7 @@ export function DeploymentTimeline({ deployments }: DeploymentTimelineProps) {
               </span>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h4 className="font-mono text-sm font-semibold text-[#0A2540]">{dep.id}</h4>
+                  <h4 className="font-mono text-sm font-semibold text-[#1A1F36]">{dep.id}</h4>
                   <span
                     className={cn(
                       "rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide",
@@ -62,7 +62,7 @@ export function DeploymentTimeline({ deployments }: DeploymentTimelineProps) {
                     {dep.environment}
                   </span>
                 </div>
-                <p className="mt-1 text-sm text-[#0A2540]">{dep.commitMessage}</p>
+                <p className="mt-1 text-sm text-[#1A1F36]">{dep.commitMessage}</p>
                 <p className="mt-2 text-xs text-[#667085]">
                   {dep.user} · Build {dep.buildDuration}
                 </p>

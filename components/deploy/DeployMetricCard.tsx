@@ -29,14 +29,14 @@ export function DeployMetricCard({
             style={
               status
                 ? { backgroundColor: `${STATUS_COLORS[status]}18`, color: STATUS_COLORS[status] }
-                : { backgroundColor: "rgba(99,91,255,0.1)", color: "#635BFF" }
+                : { backgroundColor: "rgba(122, 115, 255,0.1)", color: "#7A73FF" }
             }
           >
             {icon}
           </span>
         ) : null}
       </div>
-      <p className="mt-3 text-2xl font-bold text-[#0A2540]">{value}</p>
+      <p className="mt-3 text-2xl font-bold text-[#1A1F36]">{value}</p>
       {sublabel ? (
         <p className="mt-1 text-xs font-medium text-[#667085]">{sublabel}</p>
       ) : null}

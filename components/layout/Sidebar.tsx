@@ -51,7 +51,7 @@ export function Sidebar({ collapsed, onToggle, appId }: SidebarProps) {
       <div className="flex h-nav items-center justify-between border-b border-white/10 px-4">
         {!collapsed && (
           <Link href="/" className="text-lg font-bold text-white">
-            One<span className="text-brand-primary-light">Atlas</span>
+            One<span className="text-brand-primary">Atlas</span>
           </Link>
         )}
         <button

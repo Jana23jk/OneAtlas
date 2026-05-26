@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, RotateCcw } from "lucide-react";
+import { AppBackground } from "@/components/layout/AppBackground";
 
 export default function BuilderError({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
@@ -10,25 +11,23 @@ export default function BuilderError({ error, reset }: { error: Error; reset: ()
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-[#0A2540] flex flex-col items-center justify-center py-16 px-4 text-center hero-texture">
-      <div className="z-10 max-w-md w-full glass bg-red-950/20 border border-red-500/20 p-8 rounded-xl flex flex-col items-center gap-6 shadow-xl">
-        <div className="h-12 w-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-500">
-          <AlertTriangle size={24} />
+    <AppBackground className="flex min-h-screen items-center justify-center px-4 py-16">
+      <div className="z-10 w-full max-w-md animate-fade-in-up">
+        <div className="dashboard-card flex flex-col items-center gap-6 p-10 text-center">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-accent/20 text-brand-accent">
+            <AlertTriangle size={28} />
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold text-[#1A1F36]">Something went wrong</h1>
+            <p className="text-sm leading-relaxed text-[#667085]">
+              The builder workspace encountered an unexpected error.
+            </p>
+          </div>
+          <Button onClick={reset} className="w-full" aria-label="Retry loading workspace">
+            <RotateCcw size={14} /> Retry Loading
+          </Button>
         </div>
-        <div className="space-y-2">
-          <h1 className="text-xl font-bold text-white">Something went wrong</h1>
-          <p className="text-sm text-red-200/60 leading-relaxed">
-            The builder workspace encountered an unexpected error.
-          </p>
-        </div>
-        <Button
-          onClick={reset}
-          className="w-full bg-[#635BFF] hover:bg-[#7a73ff] text-white flex items-center justify-center gap-2 font-semibold"
-          aria-label="Retry loading workspace"
-        >
-          <RotateCcw size={14} /> Retry Loading
-        </Button>
       </div>
-    </div>
+    </AppBackground>
   );
 }

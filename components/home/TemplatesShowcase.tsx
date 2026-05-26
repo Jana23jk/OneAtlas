@@ -2,16 +2,16 @@ import Link from "next/link";
 import type { AppTemplate } from "@/types/app";
 
 const complexityConfig: Record<AppTemplate["complexity"], { label: string; color: string; bg: string }> = {
-  SIMPLE:   { label: "Simple",   color: "#00D4B1", bg: "rgba(0,212,177,0.12)"  },
-  MODERATE: { label: "Moderate", color: "#f8bc42", bg: "rgba(248,188,66,0.12)" },
-  ADVANCED: { label: "Advanced", color: "#FF5996", bg: "rgba(255,89,150,0.12)" },
+  SIMPLE:   { label: "Simple",   color: "#7A73FF", bg: "rgba(122, 115, 255,0.12)"  },
+  MODERATE: { label: "Moderate", color: "#FFB17A", bg: "rgba(248,188,66,0.12)" },
+  ADVANCED: { label: "Advanced", color: "#FFB17A", bg: "rgba(255, 177, 122,0.12)" },
 };
 
 const categoryColors: Record<string, string> = {
-  CRM:        "#635BFF",
-  HR:         "#00D4B1",
-  Admin:      "#f8bc42",
-  Operations: "#FF5996",
+  CRM:        "#7A73FF",
+  HR:         "#7A73FF",
+  Admin:      "#FFB17A",
+  Operations: "#FFB17A",
   Analytics:  "#7a73ff",
 };
 
@@ -24,7 +24,7 @@ function TemplateCard({ template }: TemplateCardProps) {
   const categoryColor = categoryColors[template.category] ?? "#8892A4";
 
   return (
-    <article className="group flex w-72 shrink-0 flex-col gap-4 p-6 bg-white border border-[#635BFF]/10 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-[#635BFF]/4 hover:border-[#635BFF]/20 hover:-translate-y-1 transition-all duration-300 sm:w-80">
+    <article className="group flex w-72 shrink-0 flex-col gap-4 p-6 bg-white border border-[#7A73FF]/10 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-[#7A73FF]/4 hover:border-[#7A73FF]/20 hover:-translate-y-1 transition-all duration-300 sm:w-80">
       {/* Category + complexity */}
       <div className="flex items-center justify-between">
         <span className="rounded-md px-2.5 py-1 text-[11px] font-semibold"
@@ -38,7 +38,7 @@ function TemplateCard({ template }: TemplateCardProps) {
       </div>
 
       {/* Name */}
-      <h3 className="text-base font-bold text-[#0A2540]">{template.name}</h3>
+      <h3 className="text-base font-bold text-[#1A1F36]">{template.name}</h3>
 
       {/* Description */}
       <p className="flex-1 text-sm leading-relaxed text-[#667085]">
@@ -56,7 +56,7 @@ function TemplateCard({ template }: TemplateCardProps) {
 
       {/* CTA */}
       <Link href={`/generate?template=${template.slug}`}
-        className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-[#635BFF] transition-all group-hover:gap-2.5">
+        className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-[#7A73FF] transition-all group-hover:gap-2.5">
         Use Template
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <path d="M5 12h14M12 5l7 7-7 7" />
@@ -77,15 +77,15 @@ export function TemplatesShowcase({ templates, id = "templates" }: TemplatesShow
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#635BFF] bg-[#635BFF]/5 px-3 py-1 rounded-full">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#7A73FF] bg-[#7A73FF]/5 px-3 py-1 rounded-full">
               Templates
             </span>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0A2540] sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#1A1F36] sm:text-4xl">
               Start from a template.
             </h2>
           </div>
           <Link href="/templates"
-            className="shrink-0 text-sm font-semibold text-[#667085] transition-colors hover:text-[#635BFF]">
+            className="shrink-0 text-sm font-semibold text-[#667085] transition-colors hover:text-[#7A73FF]">
             Browse all →
           </Link>
         </div>

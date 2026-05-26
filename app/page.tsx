@@ -17,7 +17,7 @@ export default function HomePage() {
       <HowItWorksSection />
 
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-teal/30 to-transparent" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-primary/30 to-transparent" />
       </div>
 
       <TemplatesShowcase templates={templates} id="templates" />

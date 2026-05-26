@@ -19,7 +19,7 @@ export function DashboardShell({
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#f7f8ff]">
+    <div className="flex h-screen overflow-hidden bg-[#F8F9FF]">
       <Sidebar
         collapsed={collapsed}
         onToggle={() => setCollapsed((c) => !c)}

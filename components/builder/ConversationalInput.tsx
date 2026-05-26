@@ -117,13 +117,13 @@ export function ConversationalInput() {
     <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 flex justify-center px-6 pb-6 pt-4">
       <div className="pointer-events-auto flex w-full max-w-[680px] flex-col gap-2">
         {errorMsg && (
-          <div className="flex items-center gap-2 rounded-card border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 shadow-soft animate-fade-in-up">
-            <AlertCircle size={16} className="shrink-0" />
+          <div className="flex items-center gap-2 rounded-card border border-brand-accent/40 bg-brand-accent/15 px-4 py-3 text-sm text-[#1A1F36] shadow-soft animate-fade-in-up">
+            <AlertCircle size={16} className="shrink-0 text-brand-accent" />
             <span className="flex-1">{errorMsg}</span>
             <button
               type="button"
               onClick={() => setErrorMsg(null)}
-              className="font-bold text-red-400 hover:text-red-600"
+              className="font-bold text-brand-primary hover:text-brand-primary-hover"
               aria-label="Dismiss error"
             >
               ×
@@ -136,7 +136,7 @@ export function ConversationalInput() {
             type="button"
             onClick={handleUndo}
             disabled={!canUndo || loading}
-            className="flex h-10 shrink-0 items-center gap-1.5 rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-3 text-sm font-semibold text-[#667085] transition-all hover:border-[#635BFF]/30 hover:text-[#635BFF] disabled:pointer-events-none disabled:opacity-40"
+            className="flex h-10 shrink-0 items-center gap-1.5 rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-3 text-sm font-semibold text-[#667085] transition-all hover:border-[#7A73FF]/30 hover:text-[#7A73FF] disabled:pointer-events-none disabled:opacity-40"
           >
             <CornerDownLeft size={14} />
             Undo
@@ -151,14 +151,14 @@ export function ConversationalInput() {
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             disabled={loading}
             placeholder="Tell me how to edit this app… e.g. 'Add a status field to contacts'"
-            className="min-w-0 flex-1 border-none bg-transparent text-sm text-[#0A2540] outline-none placeholder:text-[#98A2B3] disabled:opacity-50"
+            className="min-w-0 flex-1 border-none bg-transparent text-sm text-[#1A1F36] outline-none placeholder:text-[#98A2B3] disabled:opacity-50"
           />
 
           <button
             type="button"
             onClick={handleSend}
             disabled={!input.trim() || loading}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-[#635BFF] to-[#7A73FF] text-white shadow-primary transition-all hover:scale-105 disabled:pointer-events-none disabled:opacity-40 btn-lift"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#7A73FF] text-white shadow-primary transition-all hover:bg-[#6B64E8] hover:scale-105 disabled:pointer-events-none disabled:opacity-40 btn-lift"
             aria-label="Send instruction"
           >
             {loading ? (

@@ -13,7 +13,7 @@ export function AppBackground({ children, className = "" }: AppBackgroundProps) 
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute bottom-20 left-1/3 h-64 w-64 rounded-full bg-brand-cyan/10 blur-3xl animate-float"
+        className="pointer-events-none absolute bottom-20 left-1/3 h-64 w-64 rounded-full bg-brand-primary/10 blur-3xl animate-float"
         aria-hidden
       />
       <div className="relative z-10">{children}</div>

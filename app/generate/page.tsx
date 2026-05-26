@@ -91,7 +91,7 @@ export default function GeneratePage() {
             <Card hover={false} className="flex min-h-[350px] flex-col items-center justify-center gap-8 p-12 text-center">
               <div className="relative flex h-20 w-20 items-center justify-center">
                 <div className="absolute inset-0 animate-pulse rounded-full border-4 border-brand-primary/20" />
-                <div className="absolute inset-0 animate-spin rounded-full border-4 border-t-brand-primary border-r-brand-teal" />
+                <div className="absolute inset-0 animate-spin rounded-full border-4 border-t-brand-primary border-r-brand-primary" />
                 <Sparkles className="text-brand-primary animate-bounce" size={24} />
               </div>
               <div className="space-y-2">
@@ -154,9 +154,9 @@ export default function GeneratePage() {
           )}
 
           {status === "error" && (
-            <Card hover={false} className="border-red-200 bg-red-50/50">
+            <Card hover={false} className="border-brand-accent/40 bg-brand-accent/10">
               <CardContent className="flex flex-col items-center gap-6 py-8 text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-100 text-red-600">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-accent/25 text-[#1A1F36]">
                   <AlertCircle size={28} />
                 </div>
                 <div className="space-y-2">
