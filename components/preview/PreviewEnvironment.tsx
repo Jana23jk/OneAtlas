@@ -145,7 +145,7 @@ export function PreviewEnvironment({
           <button
             type="button"
             onClick={handleRefresh}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#7A73FF]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-colors hover:bg-[#FAFBFF] hover:text-[#635BFF]"
             aria-label="Refresh preview"
           >
             <RefreshCw size={16} className={refreshKey > 0 ? "animate-spin" : ""} />
@@ -153,17 +153,17 @@ export function PreviewEnvironment({
         </div>
 
         <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-4 py-2">
-          <span className="shrink-0 rounded-md bg-[rgba(122, 115, 255,0.12)] px-2 py-0.5 text-[10px] font-bold uppercase text-[#7A73FF]">
+          <span className="shrink-0 rounded-md bg-[rgba(99, 91, 255,0.12)] px-2 py-0.5 text-[10px] font-bold uppercase text-[#635BFF]">
             Preview
           </span>
           <span className="truncate font-mono text-sm text-[#1A1F36]">{displayUrl}</span>
           <button
             type="button"
             onClick={handleCopyUrl}
-            className="ml-auto shrink-0 rounded p-1 text-[#667085] hover:text-[#7A73FF]"
+            className="ml-auto shrink-0 rounded p-1 text-[#667085] hover:text-[#635BFF]"
             aria-label="Copy URL"
           >
-            {copied ? <Check size={14} className="text-[#7A73FF]" /> : <Copy size={14} />}
+            {copied ? <Check size={14} className="text-[#635BFF]" /> : <Copy size={14} />}
           </button>
         </div>
 
@@ -176,7 +176,7 @@ export function PreviewEnvironment({
               className={cn(
                 "flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all",
                 device === d.id
-                  ? "bg-gradient-to-r from-[#7A73FF] to-[#6B64E8] text-white shadow-sm"
+                  ? "bg-gradient-to-r from-[#635BFF] to-[#544cf4] text-white shadow-sm"
                   : "text-[#667085] hover:bg-[#FAFBFF]",
               )}
             >
@@ -191,7 +191,7 @@ export function PreviewEnvironment({
             href={fullPreviewUrl}
             target="_blank"
             rel="noreferrer"
-            className="hidden items-center gap-1.5 rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#1A1F36] transition-colors hover:border-[#7A73FF]/30 sm:inline-flex"
+            className="hidden items-center gap-1.5 rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#1A1F36] transition-colors hover:border-[#635BFF]/30 sm:inline-flex"
           >
             <ExternalLink size={14} />
             Open tab
@@ -206,7 +206,7 @@ export function PreviewEnvironment({
           </button>
           <Link
             href="/generate"
-            className="hidden rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#7A73FF] transition-colors hover:bg-[rgba(122, 115, 255,0.08)] lg:inline-block"
+            className="hidden rounded-lg border border-[#E7EAF5] px-3 py-2 text-xs font-semibold text-[#635BFF] transition-colors hover:bg-[rgba(99, 91, 255,0.08)] lg:inline-block"
           >
             Create your own
           </Link>
@@ -223,7 +223,7 @@ export function PreviewEnvironment({
               onClick={() => setDevice(d.id)}
               className={cn(
                 "flex flex-1 items-center justify-center gap-1 rounded-md py-1.5 text-[10px] font-semibold",
-                device === d.id ? "bg-white text-[#7A73FF] shadow-sm" : "text-[#667085]",
+                device === d.id ? "bg-white text-[#635BFF] shadow-sm" : "text-[#667085]",
               )}
             >
               {d.icon}
@@ -242,8 +242,8 @@ export function PreviewEnvironment({
                 {templateName} · v{schemaVersion} · Snapshot {new Date(createdAt).toLocaleDateString()}
               </p>
             </div>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#7A73FF]/30 bg-[rgba(122, 115, 255,0.1)] px-3 py-1 text-xs font-semibold text-[#7A73FF]">
-              <span className="status-pulse-dot status-pulse-success h-2 w-2 rounded-full bg-[#7A73FF]" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#635BFF]/30 bg-[rgba(99, 91, 255,0.1)] px-3 py-1 text-xs font-semibold text-[#635BFF]">
+              <span className="status-pulse-dot status-pulse-success h-2 w-2 rounded-full bg-[#635BFF]" />
               Live preview
             </span>
           </div>
@@ -270,20 +270,20 @@ export function PreviewEnvironment({
             <p className="text-xs text-[#667085]">Quality signals for this snapshot</p>
           </div>
 
-          <ScoreCard label="Performance" value={scores.performance} color="#7A73FF" />
-          <ScoreCard label="Accessibility" value={scores.accessibility} color="#7A73FF" />
+          <ScoreCard label="Performance" value={scores.performance} color="#635BFF" />
+          <ScoreCard label="Accessibility" value={scores.accessibility} color="#635BFF" />
           <div className="preview-insight-card">
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-[#667085]">Page load</span>
-              <Gauge size={16} className="text-[#7A73FF]" />
+              <Gauge size={16} className="text-[#635BFF]" />
             </div>
             <p className="mt-2 text-2xl font-bold text-[#1A1F36]">{scores.loadTime}</p>
           </div>
-          <ScoreCard label="SEO" value={scores.seo} color="#FFB17A" />
+          <ScoreCard label="SEO" value={scores.seo} color="#FF5996" />
 
           <div className="preview-insight-card">
             <span className="text-sm font-medium text-[#667085]">Responsive check</span>
-            <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-[#7A73FF]">
+            <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-[#635BFF]">
               <Check size={16} />
               Passed at {device} breakpoint
             </p>
@@ -301,9 +301,9 @@ export function PreviewEnvironment({
                   key={i}
                   className={
                     line.level === "warn"
-                      ? "text-[#FFB17A]"
+                      ? "text-[#FF5996]"
                       : line.level === "info"
-                        ? "text-[#7A73FF]"
+                        ? "text-[#635BFF]"
                         : "text-[#667085]"
                   }
                 >

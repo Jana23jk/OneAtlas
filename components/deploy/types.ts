@@ -11,10 +11,10 @@ export interface DeploymentRecord {
   buildDuration: string;
 }
 
-/** Status colors — primary (#7A73FF) and accent (#FFB17A) only */
+/** Status colors mapping */
 export const STATUS_COLORS: Record<DeploymentStatus, string> = {
-  success: "#7A73FF",
-  running: "#7A73FF",
-  pending: "#FFB17A",
-  failed: "#1A1F36",
+  success: "#00D4B1",
+  running: "#635BFF",
+  pending: "#F8BC42",
+  failed: "#FF5996",
 };

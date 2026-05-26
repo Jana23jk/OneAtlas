@@ -122,7 +122,7 @@ export function BuilderTopBar() {
       <div className="flex items-center gap-4">
         <Link
           href="/generate"
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#7A73FF]/30 hover:bg-[rgba(122, 115, 255,0.08)] hover:text-[#7A73FF]"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7EAF5] text-[#667085] transition-all hover:border-[#635BFF]/30 hover:bg-[rgba(99, 91, 255,0.08)] hover:text-[#635BFF]"
         >
           <ArrowLeft size={16} />
         </Link>
@@ -154,7 +154,7 @@ export function BuilderTopBar() {
         {schema && (
           <div className="inline-flex items-center gap-1.5 rounded-full border border-[#E7EAF5] bg-[#FAFBFF] px-3 py-1.5 text-xs">
             <span className="font-semibold text-[#667085]">Version</span>
-            <span className="rounded-md bg-[rgba(122, 115, 255,0.12)] px-2 py-0.5 text-[10px] font-bold text-[#7A73FF]">
+            <span className="rounded-md bg-[rgba(99, 91, 255,0.12)] px-2 py-0.5 text-[10px] font-bold text-[#635BFF]">
               v{schema.version}
             </span>
           </div>
@@ -184,7 +184,7 @@ export function BuilderTopBar() {
 
       {/* Toast Alert */}
       {toastMsg && (
-        <div className="absolute bottom-[-48px] left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-lg border border-[#7A73FF]/30 bg-white px-4 py-2 text-xs font-medium text-[#7A73FF] shadow-card animate-fade-in-up">
+        <div className="absolute bottom-[-48px] left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-lg border border-[#635BFF]/30 bg-white px-4 py-2 text-xs font-medium text-[#635BFF] shadow-card animate-fade-in-up">
           <Check size={14} /> {toastMsg}
         </div>
       )}
@@ -218,7 +218,7 @@ export function BuilderTopBar() {
                 <div className="pt-4 flex gap-3 justify-center">
                   <Button
                     onClick={startDeployment}
-                    className="bg-[#7A73FF] hover:bg-[#7a73ff] text-white"
+                    className="bg-[#635BFF] hover:bg-[#544cf4] text-white"
                   >
                     Retry Deployment
                   </Button>
@@ -231,7 +231,7 @@ export function BuilderTopBar() {
               /* Deploying / Progress State */
               <div className="space-y-6 py-2">
                 <div className="flex items-center gap-3">
-                  <Loader2 className="animate-spin text-[#7A73FF] h-5 w-5" />
+                  <Loader2 className="animate-spin text-[#635BFF] h-5 w-5" />
                   <h3 className="text-lg font-semibold text-[#1A1F36]">Deploying application...</h3>
                 </div>
                 <p className="text-xs text-[#667085]">
@@ -251,9 +251,9 @@ export function BuilderTopBar() {
                         }`}
                       >
                         {isCompleted ? (
-                          <CheckCircle2 size={15} className="text-[#7A73FF] shrink-0 mt-0.5" />
+                          <CheckCircle2 size={15} className="text-[#635BFF] shrink-0 mt-0.5" />
                         ) : isActive ? (
-                          <Loader2 size={15} className="text-[#7A73FF] animate-spin shrink-0 mt-0.5" />
+                          <Loader2 size={15} className="text-[#635BFF] animate-spin shrink-0 mt-0.5" />
                         ) : (
                           <div className="mt-0.5 h-[15px] w-[15px] shrink-0 rounded-full border border-[#E7EAF5]" />
                         )}
@@ -266,7 +266,7 @@ export function BuilderTopBar() {
                 {/* Simulated progress bar */}
                 <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#E7EAF5]">
                   <div
-                    className="bg-gradient-to-r from-[#7A73FF] to-[#6B64E8] h-1.5 transition-all duration-500 rounded-full"
+                    className="bg-gradient-to-r from-[#635BFF] to-[#544cf4] h-1.5 transition-all duration-500 rounded-full"
                     style={{ width: `${(deployStep / 4) * 100}%` }}
                   />
                 </div>
@@ -274,8 +274,8 @@ export function BuilderTopBar() {
             ) : (
               /* Deployment Success State */
               <div className="space-y-5 text-center py-2">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#7A73FF]/10 text-[#7A73FF]">
-                  <CheckCircle2 size={36} className="drop-shadow-[0_0_10px_rgba(122, 115, 255,0.4)]" />
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#635BFF]/10 text-[#635BFF]">
+                  <CheckCircle2 size={36} className="drop-shadow-[0_0_10px_rgba(99,91,255,0.4)]" />
                 </div>
 
                 <div className="space-y-1">
@@ -298,10 +298,10 @@ export function BuilderTopBar() {
                         setDeployLinkCopied(true);
                         setTimeout(() => setDeployLinkCopied(false), 2000);
                       }}
-                      className="shrink-0 rounded p-1.5 text-[#667085] transition-colors hover:bg-[rgba(122, 115, 255,0.08)] hover:text-[#7A73FF]"
+                      className="shrink-0 rounded p-1.5 text-[#667085] transition-colors hover:bg-[rgba(99, 91, 255,0.08)] hover:text-[#635BFF]"
                       title="Copy live link"
                     >
-                      {deployLinkCopied ? <Check size={14} className="text-[#7A73FF]" /> : <Copy size={14} />}
+                      {deployLinkCopied ? <Check size={14} className="text-[#635BFF]" /> : <Copy size={14} />}
                     </button>
                   </div>
                 )}
@@ -312,7 +312,7 @@ export function BuilderTopBar() {
                     href={deployUrl || "#"}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 rounded-lg bg-[#7A73FF] hover:bg-[#7a73ff] px-4 py-2.5 text-xs font-semibold text-white transition-all text-center"
+                    className="flex-1 flex items-center justify-center gap-1.5 rounded-lg bg-[#635BFF] hover:bg-[#544cf4] px-4 py-2.5 text-xs font-semibold text-white transition-all text-center"
                   >
                     Launch App <ExternalLink size={12} />
                   </a>

@@ -29,7 +29,7 @@ export function DeployMetricCard({
             style={
               status
                 ? { backgroundColor: `${STATUS_COLORS[status]}18`, color: STATUS_COLORS[status] }
-                : { backgroundColor: "rgba(122, 115, 255,0.1)", color: "#7A73FF" }
+                : { backgroundColor: "rgba(99, 91, 255, 0.1)", color: "#635BFF" }
             }
           >
             {icon}

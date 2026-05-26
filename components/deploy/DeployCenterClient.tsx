@@ -97,13 +97,13 @@ export function DeployCenterClient({
           <div className="space-y-3">
             <Link
               href={`/builder/${appId}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#667085] transition-colors hover:text-[#7A73FF]"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#667085] transition-colors hover:text-[#635BFF]"
             >
               <ArrowLeft size={16} />
               Back to builder
             </Link>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#7A73FF]">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#635BFF]">
                 Deployment center
               </p>
               <h1 className="mt-1 text-3xl font-bold text-[#1A1F36]">{appName}</h1>
@@ -122,7 +122,7 @@ export function DeployCenterClient({
                   onClick={() => setEnvironment(env)}
                   className={`rounded-lg px-3 py-1.5 text-xs font-semibold capitalize transition-all ${
                     environment === env
-                      ? "bg-gradient-to-r from-[#7A73FF] to-[#6B64E8] text-white shadow-md"
+                      ? "bg-gradient-to-r from-[#635BFF] to-[#544cf4] text-white shadow-md"
                       : "text-[#667085] hover:bg-[#FAFBFF] hover:text-[#1A1F36]"
                   }`}
                 >
@@ -171,7 +171,7 @@ export function DeployCenterClient({
               className={`flex h-3 w-3 rounded-full ${
                 deploying ? "status-pulse-dot status-pulse-running" : "status-pulse-dot status-pulse-success"
               }`}
-              style={{ backgroundColor: deploying ? "#7A73FF" : "#7A73FF" }}
+              style={{ backgroundColor: deploying ? "#635BFF" : "#00D4B1" }}
             />
             <div>
               <p className="text-sm font-semibold text-[#1A1F36]">
@@ -191,7 +191,7 @@ export function DeployCenterClient({
             <Link
               href={`/run/${appId}`}
               target="_blank"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-[#FAFBFF] px-3 py-2 text-xs font-semibold text-[#1A1F36] transition-colors hover:border-[#7A73FF]/30"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#E7EAF5] bg-[#FAFBFF] px-3 py-2 text-xs font-semibold text-[#1A1F36] transition-colors hover:border-[#635BFF]/30"
             >
               <Globe size={14} />
               Open live app
@@ -199,8 +199,8 @@ export function DeployCenterClient({
             <span
               className="rounded-full px-3 py-1 text-xs font-bold capitalize"
               style={{
-                backgroundColor: latestStatus === "success" ? "rgba(122, 115, 255,0.12)" : "rgba(122, 115, 255,0.12)",
-                color: latestStatus === "success" ? "#7A73FF" : "#7A73FF",
+                backgroundColor: latestStatus === "success" ? "rgba(0, 212, 177, 0.12)" : "rgba(99, 91, 255, 0.12)",
+                color: latestStatus === "success" ? "#00D4B1" : "#635BFF",
               }}
             >
               {latestStatus}
@@ -210,7 +210,7 @@ export function DeployCenterClient({
             <div className="w-full">
               <div className="h-2 overflow-hidden rounded-full bg-[#E7EAF5]">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-[#7A73FF] to-[#6B64E8] transition-all duration-500"
+                  className="h-full rounded-full bg-gradient-to-r from-[#635BFF] to-[#544cf4] transition-all duration-500"
                   style={{ width: `${deployProgress}%` }}
                 />
               </div>

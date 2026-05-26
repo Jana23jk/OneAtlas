@@ -136,7 +136,7 @@ export function ConversationalInput() {
             type="button"
             onClick={handleUndo}
             disabled={!canUndo || loading}
-            className="flex h-10 shrink-0 items-center gap-1.5 rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-3 text-sm font-semibold text-[#667085] transition-all hover:border-[#7A73FF]/30 hover:text-[#7A73FF] disabled:pointer-events-none disabled:opacity-40"
+            className="flex h-10 shrink-0 items-center gap-1.5 rounded-xl border border-[#E7EAF5] bg-[#FAFBFF] px-3 text-sm font-semibold text-[#667085] transition-all hover:border-[#635BFF]/30 hover:text-[#635BFF] disabled:pointer-events-none disabled:opacity-40"
           >
             <CornerDownLeft size={14} />
             Undo
@@ -158,7 +158,7 @@ export function ConversationalInput() {
             type="button"
             onClick={handleSend}
             disabled={!input.trim() || loading}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#7A73FF] text-white shadow-primary transition-all hover:bg-[#6B64E8] hover:scale-105 disabled:pointer-events-none disabled:opacity-40 btn-lift"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#635BFF] text-white shadow-primary transition-all hover:bg-[#544cf4] hover:scale-105 disabled:pointer-events-none disabled:opacity-40 btn-lift"
             aria-label="Send instruction"
           >
             {loading ? (

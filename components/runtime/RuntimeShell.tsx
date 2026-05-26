@@ -41,7 +41,7 @@ export function RuntimeShell({
       <div className="glow-purple -left-24 top-0 opacity-50" aria-hidden />
       <div className="glow-pink right-0 top-1/3 opacity-40" aria-hidden />
       <div
-        className="pointer-events-none absolute bottom-16 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#7A73FF]/8 blur-3xl animate-float"
+        className="pointer-events-none absolute bottom-16 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#635BFF]/8 blur-3xl animate-float"
         aria-hidden
       />
 
@@ -55,8 +55,8 @@ export function RuntimeShell({
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#7A73FF]/30 bg-[rgba(122, 115, 255,0.1)] px-2.5 py-1 text-xs font-semibold text-[#7A73FF]">
-                <span className="status-pulse-dot status-pulse-success h-2 w-2 rounded-full bg-[#7A73FF]" />
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#00D4B1]/30 bg-[rgba(0, 212, 177,0.1)] px-2.5 py-1 text-xs font-semibold text-[#00D4B1]">
+                <span className="status-pulse-dot status-pulse-success h-2 w-2 rounded-full bg-[#00D4B1]" />
                 Live
               </span>
               <span className="rounded-full border border-[#E7EAF5] bg-[#FAFBFF] px-2.5 py-1 text-xs font-semibold capitalize text-[#667085]">
@@ -82,17 +82,17 @@ export function RuntimeShell({
             </div>
             <button
               type="button"
-              className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#7A73FF]/30 hover:text-[#7A73FF]"
+              className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#635BFF]/30 hover:text-[#635BFF]"
               aria-label="Notifications"
             >
               <Bell size={18} />
-              <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-[#FFB17A]" />
+              <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-[#FF5996]" />
             </button>
             <button
               type="button"
               onClick={handleRefresh}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#7A73FF]/30 hover:text-[#7A73FF]",
+                "flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7EAF5] bg-white text-[#667085] transition-colors hover:border-[#635BFF]/30 hover:text-[#635BFF]",
                 refreshing && "pointer-events-none opacity-60",
               )}
               aria-label="Refresh"
@@ -100,7 +100,7 @@ export function RuntimeShell({
               <RefreshCw size={18} className={refreshing ? "animate-spin" : ""} />
             </button>
             <div className="flex h-10 items-center gap-2 rounded-xl border border-[#E7EAF5] bg-white pl-1 pr-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#7A73FF] to-[#6B64E8] text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#635BFF] to-[#544cf4] text-white">
                 <User size={16} />
               </span>
               <span className="hidden text-xs font-semibold text-[#1A1F36] sm:inline">Admin</span>

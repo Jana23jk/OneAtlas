@@ -12,12 +12,12 @@ function LogoIcon() {
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden>
       <path
         d="M14 2L25.26 8.5V21.5L14 28L2.74 21.5V8.5L14 2Z"
-        stroke="#7A73FF"
+        stroke="#635BFF"
         strokeWidth="1.5"
         fill="none"
       />
-      <circle cx="14" cy="14" r="5" stroke="#7A73FF" strokeWidth="1.5" fill="none" />
-      <circle cx="14" cy="14" r="2" fill="#7A73FF" />
+      <circle cx="14" cy="14" r="5" stroke="#635BFF" strokeWidth="1.5" fill="none" />
+      <circle cx="14" cy="14" r="2" fill="#635BFF" />
     </svg>
   );
 }

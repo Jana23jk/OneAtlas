@@ -12,7 +12,7 @@ function RunNotFound() {
     <AppBackground className="flex min-h-screen items-center justify-center px-4 py-16">
       <div className="z-10 w-full max-w-md animate-fade-in-up">
         <div className="dashboard-card flex flex-col items-center gap-6 p-10 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgba(122,115,255,0.12)] text-[#7A73FF]">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgba(99,91,255,0.12)] text-[#635BFF]">
             <Search size={28} />
           </div>
           <div className="space-y-2">

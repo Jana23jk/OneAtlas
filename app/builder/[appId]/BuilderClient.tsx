@@ -54,7 +54,7 @@ export function BuilderClient({
           <span>
             Schema <strong className="text-[#1A1F36]">v{currentSchema.version}</strong>
           </span>
-          <span className="font-medium text-[#7A73FF]">● Connected</span>
+          <span className="font-medium text-[#00D4B1]">● Connected</span>
         </div>
       }
     >

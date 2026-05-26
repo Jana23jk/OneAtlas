@@ -75,10 +75,10 @@ const STOCK_MOVEMENTS = [
 
 function fieldIcon(field: SchemaField) {
   const key = field.name.toLowerCase();
-  if (key.includes("sku")) return <Hash size={14} className="text-[#7A73FF]" />;
-  if (key.includes("quantity") || key.includes("stock")) return <Layers size={14} className="text-[#7A73FF]" />;
+  if (key.includes("sku")) return <Hash size={14} className="text-[#635BFF]" />;
+  if (key.includes("quantity") || key.includes("stock")) return <Layers size={14} className="text-[#635BFF]" />;
   if (key.includes("supplier")) return <Truck size={14} className="text-[#667085]" />;
-  if (key.includes("name") || key.includes("product")) return <Package size={14} className="text-[#7A73FF]" />;
+  if (key.includes("name") || key.includes("product")) return <Package size={14} className="text-[#635BFF]" />;
   return null;
 }
 
@@ -109,9 +109,9 @@ function getInventoryCellValue(
     if (key.includes("product")) return movement.product;
     if (key.includes("type")) {
       const colors: Record<string, string> = {
-        In: "#7A73FF",
-        Out: "#FFB17A",
-        Adjustment: "#FFB17A",
+        In: "#00D4B1",
+        Out: "#FF5996",
+        Adjustment: "#F8BC42",
       };
       const c = colors[movement.type] ?? "#667085";
       return (
@@ -158,7 +158,7 @@ function TableToolbar({ title, isInventory }: { title: string; isInventory: bool
             value={localSearch}
             onChange={(e) => setLocalSearch(e.target.value)}
             placeholder="Search…"
-            className="h-9 w-36 rounded-lg border border-[#E7EAF5] bg-[#FAFBFF] pl-8 pr-2 text-xs text-[#1A1F36] outline-none focus:border-[#7A73FF]"
+            className="h-9 w-36 rounded-lg border border-[#E7EAF5] bg-[#FAFBFF] pl-8 pr-2 text-xs text-[#1A1F36] outline-none focus:border-[#635BFF]"
           />
         </div>
         <button
@@ -265,18 +265,18 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
         const values = isInventory
           ? ["248", "14", "3"]
           : [`${(i + 1) * 425}`, `${(i + 1) * 120}`, "Active"];
-        const accents = ["#7A73FF", "#FFB17A", "#FFB17A"];
+        const accents = ["#635BFF", "#FF5996", "#FF5996"];
         return (
           <div
             key={f.id}
             className="inventory-metric-card !p-5"
             style={{ animationDelay: `${i * 0.06}s` }}
           >
-            <span className="block text-xs font-semibold uppercase tracking-wider text-[#667085]">
+            <span className="block truncate text-xs font-semibold uppercase tracking-wider text-[#667085]">
               {f.name}
             </span>
             <span className="mt-2 block text-2xl font-bold text-[#1A1F36]">{values[i] ?? "—"}</span>
-            <span className="mt-1 block text-xs font-medium" style={{ color: accents[i] ?? "#7A73FF" }}>
+            <span className="mt-1 block text-xs font-medium" style={{ color: accents[i] ?? "#635BFF" }}>
               {isInventory ? "Live from warehouse sync" : "↑ 12% vs last month"}
             </span>
           </div>
@@ -304,7 +304,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
               <div key={bar.label} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
                 <div
                   style={{ height: `${bar.h}%` }}
-                  className="w-full rounded-t bg-gradient-to-t from-[#7A73FF] to-[#6B64E8] opacity-90 transition-all hover:opacity-100"
+                  className="w-full rounded-t bg-gradient-to-t from-[#635BFF] to-[#544cf4] opacity-90 transition-all hover:opacity-100"
                 />
                 <span className="text-[10px] font-medium text-[#667085]">{bar.label}</span>
               </div>
@@ -313,7 +313,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
               <div key={i} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
                 <div
                   style={{ height: `${h}%` }}
-                  className="w-full rounded-t bg-gradient-to-t from-[#7A73FF] to-[#6B64E8]"
+                  className="w-full rounded-t bg-gradient-to-t from-[#635BFF] to-[#544cf4]"
                 />
                 <span className="font-mono text-[10px] text-[#98A2B3]">Q{i + 1}</span>
               </div>
@@ -326,7 +326,7 @@ export function RuntimeAppCanvas({ schema, isInventory = false }: RuntimeAppCanv
     <ul className="divide-y divide-[#E7EAF5] overflow-hidden rounded-2xl border border-[#E7EAF5] bg-white">
       {[0, 1, 2].map((i) => (
         <li key={i} className="flex items-center gap-3 p-4 transition-colors hover:bg-[#F4F5FF]">
-          <div className="h-2 w-2 shrink-0 rounded-full bg-[#7A73FF]" />
+          <div className="h-2 w-2 shrink-0 rounded-full bg-[#635BFF]" />
           <div className="flex flex-1 flex-wrap justify-between gap-3 text-sm">
             {comp.fields.slice(0, 3).map((f) => (
               <span key={f.id} className="text-[#1A1F36]">
