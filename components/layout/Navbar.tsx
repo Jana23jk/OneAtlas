@@ -21,17 +21,31 @@ function LogoIcon() {
   );
 }
 
-/* ── Navbar (Server Component) ──────────────────────────────────────────── */
-export function Navbar() {
+interface NavbarProps {
+  light?: boolean;
+}
+
+export function Navbar({ light = false }: NavbarProps) {
+  const headerBg = light ? "rgba(255, 255, 255, 0.8)" : "rgba(10, 37, 64, 0.8)";
+  const headerBorder = light ? "border-[#635BFF]/10" : "border-white/[0.07]";
+  const logoText = light ? "text-[#0A2540]" : "text-white";
+  const linkText = light ? "text-[#475467] hover:text-[#635BFF]" : "text-[#8892A4] hover:text-white";
+  const signInBtn = light 
+    ? "border-[#635BFF]/20 text-[#475467] hover:border-[#635BFF]/40 hover:text-[#635BFF] hover:bg-[#635BFF]/5" 
+    : "border-white/20 text-white/80 hover:border-white/40 hover:text-white";
+  const startBuildingBtn = light
+    ? "bg-gradient-to-r from-[#635BFF] to-[#7A73FF] text-white shadow-md shadow-[#635BFF]/10 hover:shadow-lg hover:shadow-[#635BFF]/20 hover:-translate-y-0.5"
+    : "bg-[#635BFF] text-white shadow-lg shadow-[#635BFF]/25 hover:bg-[#7a73ff] hover:shadow-[#635BFF]/40";
+
   return (
-    <header className="glass fixed left-0 right-0 top-0 z-50 border-b border-white/[0.07] px-4"
-      style={{ borderRadius: 0, backdropFilter: "blur(20px)", background: "rgba(10,37,64,0.8)" }}
+    <header className={`fixed left-0 right-0 top-0 z-50 border-b px-4 transition-all duration-300 ${headerBorder}`}
+      style={{ borderRadius: 0, backdropFilter: "blur(16px)", background: headerBg }}
     >
       <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <LogoIcon />
-          <span className="text-lg font-bold tracking-tight text-white">
+          <span className={`text-lg font-bold tracking-tight transition-colors ${logoText}`}>
             OneAtlas
           </span>
         </Link>
@@ -42,7 +56,7 @@ export function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-[#8892A4] transition-colors hover:text-white"
+              className={`text-sm font-medium transition-colors ${linkText}`}
             >
               {link.label}
             </Link>
@@ -53,13 +67,13 @@ export function Navbar() {
         <div className="hidden items-center gap-3 md:flex shrink-0">
           <Link
             href="/generate"
-            className="rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/80 transition-all hover:border-white/40 hover:text-white"
+            className={`rounded-lg border px-4 py-2 text-sm font-medium transition-all ${signInBtn}`}
           >
             Sign In
           </Link>
           <Link
             href="/generate"
-            className="rounded-lg bg-[#635BFF] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[#635BFF]/25 transition-all hover:bg-[#7a73ff] hover:shadow-[#635BFF]/40"
+            className={`rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300 ${startBuildingBtn}`}
           >
             Start Building →
           </Link>
@@ -67,7 +81,7 @@ export function Navbar() {
 
         {/* Mobile: client component handles interactivity */}
         <div className="relative md:hidden">
-          <MobileNav links={siteConfig.navLinks} />
+          <MobileNav links={siteConfig.navLinks} light={light} />
         </div>
       </div>
     </header>

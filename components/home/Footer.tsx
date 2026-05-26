@@ -50,9 +50,24 @@ const socials = [
   { label: "Discord", href: "https://discord.com",  Icon: DiscordIcon },
 ];
 
-export function Footer() {
+interface FooterProps {
+  light?: boolean;
+}
+
+export function Footer({ light = false }: FooterProps) {
+  const footerBorder = light ? "border-t border-[#635BFF]/10" : "border-t border-white/[0.07]";
+  const brandText = light ? "text-[#0A2540]" : "text-white";
+  const descText = light ? "text-[#667085]" : "text-[#8892A4]";
+  const socialIconClass = light 
+    ? "border-[#635BFF]/15 text-[#667085] hover:border-[#635BFF]/30 hover:text-[#635BFF] hover:bg-[#635BFF]/5" 
+    : "border-white/10 text-[#8892A4] hover:border-white/30 hover:text-white";
+  const colHeading = light ? "text-[#344054]" : "text-[#8892A4]";
+  const linkClass = light ? "text-[#667085] hover:text-[#635BFF]" : "text-white/60 hover:text-white";
+  const bottomBorder = light ? "border-t border-[#635BFF]/10" : "border-t border-white/[0.07]";
+  const bottomText = light ? "text-[#667085]" : "text-[#8892A4]";
+
   return (
-    <footer className="border-t border-white/[0.07] mt-8">
+    <footer className={`mt-8 ${footerBorder}`}>
       <div className="mx-auto max-w-7xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand column */}
@@ -63,9 +78,9 @@ export function Footer() {
                 <circle cx="14" cy="14" r="5" stroke="#00D4B1" strokeWidth="1.5" fill="none" />
                 <circle cx="14" cy="14" r="2" fill="#635BFF" />
               </svg>
-              <span className="text-base font-bold text-white">OneAtlas</span>
+              <span className={`text-base font-bold transition-colors ${brandText}`}>OneAtlas</span>
             </div>
-            <p className="text-sm leading-relaxed text-[#8892A4] max-w-xs">
+            <p className={`text-sm leading-relaxed max-w-xs transition-colors ${descText}`}>
               Build internal tools at the speed of thought. Metadata-driven runtime for modern teams.
             </p>
             {/* Social icons */}
@@ -73,7 +88,7 @@ export function Footer() {
               {socials.map(({ label, href, Icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-[#8892A4] transition-all hover:border-white/30 hover:text-white">
+                  className={`flex h-9 w-9 items-center justify-center rounded-lg border transition-all ${socialIconClass}`}>
                   <Icon />
                 </a>
               ))}
@@ -83,12 +98,12 @@ export function Footer() {
           {/* Link columns */}
           {(Object.entries(footerLinks) as [string, readonly { label: string; href: string }[]][]).map(([col, links]) => (
             <div key={col} className="flex flex-col gap-4">
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-[#8892A4]">{col}</h4>
+              <h4 className={`text-xs font-semibold uppercase tracking-widest transition-colors ${colHeading}`}>{col}</h4>
               <ul className="flex flex-col gap-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
                     <Link href={link.href}
-                      className="text-sm text-white/60 transition-colors hover:text-white">
+                      className={`text-sm transition-colors ${linkClass}`}>
                       {link.label}
                     </Link>
                   </li>
@@ -99,11 +114,11 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/[0.07] pt-8 sm:flex-row">
-          <p className="text-xs text-[#8892A4]">
+        <div className={`mt-12 flex flex-col items-center justify-between gap-3 pt-8 sm:flex-row ${bottomBorder}`}>
+          <p className={`text-xs transition-colors ${bottomText}`}>
             © {new Date().getFullYear()} OneAtlas, Inc. All rights reserved.
           </p>
-          <p className="text-xs text-[#8892A4]">
+          <p className={`text-xs transition-colors ${bottomText}`}>
             Built with Next.js 15 · Prisma · Neon
           </p>
         </div>

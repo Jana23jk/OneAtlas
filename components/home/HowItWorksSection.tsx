@@ -66,33 +66,36 @@ export function HowItWorksSection() {
   return (
     <section id="how-it-works" className="mx-auto max-w-7xl px-6 py-24">
       {/* Header */}
-      <div className="mb-14 text-center">
-        <span className="text-xs font-semibold uppercase tracking-widest text-[#635BFF]">
+      <div className="mb-16 text-center">
+        <span className="text-xs font-semibold uppercase tracking-widest text-[#635BFF] bg-[#635BFF]/5 px-3 py-1 rounded-full">
           How It Works
         </span>
-        <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0A2540] sm:text-4xl">
           From idea to app in three steps.
         </h2>
+        <p className="mt-3 text-[#667085] text-sm sm:text-base max-w-md mx-auto">
+          OneAtlas automates the database provisioning and UI compiling so you can build instantly.
+        </p>
       </div>
 
       {/* Cards + connector */}
-      <div className="relative grid gap-6 md:grid-cols-3">
+      <div className="relative grid gap-8 md:grid-cols-3">
         {/* Dashed connector line — desktop only */}
         <div
-          className="pointer-events-none absolute left-[calc(33.33%+2rem)] right-[calc(33.33%-2rem)] top-12 hidden border-t-2 border-dashed border-white/10 md:block"
+          className="pointer-events-none absolute left-[calc(33.33%+2rem)] right-[calc(33.33%-2rem)] top-16 hidden border-t-2 border-dashed border-[#635BFF]/15 md:block"
           aria-hidden
         />
 
         {steps.map((step) => (
           <div
             key={step.number}
-            className="glass relative flex flex-col gap-4 p-7 transition-all duration-300 hover:border-white/20 hover:shadow-lg"
+            className="relative flex flex-col gap-5 p-8 bg-white border border-[#635BFF]/10 rounded-2xl shadow-sm hover:shadow-md hover:border-[#635BFF]/20 hover:-translate-y-1 transition-all duration-300"
           >
             {/* Number pill + icon row */}
             <div className="flex items-center justify-between">
               <span
-                className="inline-flex h-8 w-11 items-center justify-center rounded-md text-xs font-bold"
-                style={{ background: `${step.accent}20`, color: step.accent }}
+                className="inline-flex h-8 w-11 items-center justify-center rounded-lg text-xs font-bold"
+                style={{ background: `${step.accent}12`, color: step.accent }}
               >
                 {step.number}
               </span>
@@ -100,11 +103,11 @@ export function HowItWorksSection() {
                 <step.Icon />
               </span>
             </div>
-            <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-            <p className="text-sm leading-relaxed text-[#8892A4]">{step.description}</p>
+            <h3 className="text-lg font-bold text-[#0A2540]">{step.title}</h3>
+            <p className="text-sm leading-relaxed text-[#667085]">{step.description}</p>
             {/* Bottom accent bar */}
             <div
-              className="mt-auto h-[2px] w-10 rounded-full"
+              className="mt-auto h-[3px] w-12 rounded-full"
               style={{ background: step.accent }}
             />
           </div>

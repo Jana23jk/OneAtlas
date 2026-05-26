@@ -24,11 +24,11 @@ function TemplateCard({ template }: TemplateCardProps) {
   const categoryColor = categoryColors[template.category] ?? "#8892A4";
 
   return (
-    <article className="glass group flex w-72 shrink-0 flex-col gap-4 p-6 transition-all duration-200 hover:border-white/20 hover:shadow-xl hover:shadow-[#635BFF]/5 sm:w-80">
+    <article className="group flex w-72 shrink-0 flex-col gap-4 p-6 bg-white border border-[#635BFF]/10 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-[#635BFF]/4 hover:border-[#635BFF]/20 hover:-translate-y-1 transition-all duration-300 sm:w-80">
       {/* Category + complexity */}
       <div className="flex items-center justify-between">
         <span className="rounded-md px-2.5 py-1 text-[11px] font-semibold"
-          style={{ background: `${categoryColor}18`, color: categoryColor }}>
+          style={{ background: `${categoryColor}12`, color: categoryColor }}>
           {template.category}
         </span>
         <span className="rounded-md px-2.5 py-1 text-[11px] font-semibold"
@@ -38,15 +38,15 @@ function TemplateCard({ template }: TemplateCardProps) {
       </div>
 
       {/* Name */}
-      <h3 className="text-base font-semibold text-white">{template.name}</h3>
+      <h3 className="text-base font-bold text-[#0A2540]">{template.name}</h3>
 
       {/* Description */}
-      <p className="flex-1 text-sm leading-relaxed text-[#8892A4]">
+      <p className="flex-1 text-sm leading-relaxed text-[#667085]">
         {template.description}
       </p>
 
       {/* Component count hint */}
-      <div className="flex items-center gap-1.5 text-xs text-[#8892A4]">
+      <div className="flex items-center gap-1.5 text-xs text-[#667085]">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" />
           <rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" />
@@ -75,22 +75,24 @@ export function TemplatesShowcase({ templates }: TemplatesShowcaseProps) {
     <section id="templates" className="py-24">
       {/* Header */}
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#635BFF]">Templates</span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <span className="text-xs font-semibold uppercase tracking-widest text-[#635BFF] bg-[#635BFF]/5 px-3 py-1 rounded-full">
+              Templates
+            </span>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0A2540] sm:text-4xl">
               Start from a template.
             </h2>
           </div>
           <Link href="/templates"
-            className="shrink-0 text-sm font-medium text-[#8892A4] transition-colors hover:text-white">
+            className="shrink-0 text-sm font-semibold text-[#667085] transition-colors hover:text-[#635BFF]">
             Browse all →
           </Link>
         </div>
       </div>
 
       {/* Horizontal scroll row — extends to screen edges */}
-      <div className="scrollbar-hide flex gap-5 overflow-x-auto px-6 pb-4 md:px-[max(1.5rem,calc((100vw-80rem)/2))]">
+      <div className="scrollbar-hide flex gap-6 overflow-x-auto px-6 pb-4 md:px-[max(1.5rem,calc((100vw-80rem)/2))]">
         {templates.map((template) => (
           <TemplateCard key={template.id} template={template} />
         ))}
