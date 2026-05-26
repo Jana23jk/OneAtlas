@@ -546,6 +546,113 @@
   .status-pulse-success::after {
     background: rgba(0, 212, 177, 0.35);
   }
+
+  /* Runtime / Inventory dashboard */
+  .runtime-page-bg {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f7f8ff 0%, #ffffff 100%);
+  }
+
+  .runtime-page-bg::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+    background-image:
+      linear-gradient(to right, rgba(99, 91, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 91, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .runtime-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #e7eaf5;
+  }
+
+  .inventory-metric-card {
+    background: #ffffff;
+    border: 1px solid #e7eaf5;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 8px 30px rgba(10, 37, 64, 0.06);
+    transition:
+      transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .inventory-metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(10, 37, 64, 0.1);
+  }
+
+  .inventory-table-panel {
+    background: #ffffff;
+    border: 1px solid #e7eaf5;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 30px rgba(10, 37, 64, 0.06);
+    transition:
+      transform 300ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .inventory-table-panel:hover {
+    box-shadow: 0 12px 36px rgba(10, 37, 64, 0.08);
+  }
+
+  .runtime-table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #e7eaf5;
+  }
+
+  .runtime-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+
+  .runtime-table thead tr {
+    background: #f7f8ff;
+  }
+
+  .runtime-table th {
+    padding: 16px 20px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #0a2540;
+    border-bottom: 1px solid #e7eaf5;
+    white-space: nowrap;
+  }
+
+  .runtime-table td {
+    padding: 18px 20px;
+    color: #0a2540;
+    border-bottom: 1px solid #e7eaf5;
+    vertical-align: middle;
+  }
+
+  .runtime-table tbody tr {
+    background: #ffffff;
+    transition: background 200ms ease;
+  }
+
+  .runtime-table tbody tr:nth-child(even) {
+    background: #fafbff;
+  }
+
+  .runtime-table tbody tr:hover {
+    background: #f4f5ff;
+  }
+
+  .runtime-table tbody tr:last-child td {
+    border-bottom: none;
+  }
 }
 
 @keyframes status-pulse {
