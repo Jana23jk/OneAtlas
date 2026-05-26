@@ -62,7 +62,8 @@ export function BuilderTopBar() {
       setDeployStep(3);
 
       // Step 3: Edge publishing (await API result here to be safe)
-      const finalUrl = await apiPromise;
+      await apiPromise;
+      const finalUrl = `${window.location.origin}/run/${appId}`;
       await new Promise((resolve) => setTimeout(resolve, 800));
       
       setDeployUrl(finalUrl);
